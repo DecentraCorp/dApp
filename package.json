@@ -40,7 +40,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "typegen": "typechain --target ethers-v5 src/types \"src/lib/abis/*.json\""
   },
   "eslintConfig": {
     "extends": [
@@ -62,7 +63,8 @@
   },
   "devDependencies": {
     "@typechain/ethers-v5": "^7.0.0",
+    "@types/lodash": "^4.14.172",
+    "lodash": "^4.17.21",
     "typechain": "^5.1.1"
-
   }
 }
