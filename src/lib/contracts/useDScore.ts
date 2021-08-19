@@ -5,8 +5,8 @@ import { useMemo } from 'react';
 import addresses from './address';
 import { Maybe } from 'true-myth';
 import { chainIdToNetworkType } from './networks';
-import {DecentraCore__factory} from '../../../types/ethers-contracts/factories/DecentraCore__factory';
-import { DecentraCore } from "../../../types/ethers-contracts/DecentraCore";
+import {DScore__factory} from '../../../types/ethers-contracts/factories/DScore__factory';
+import { DScore } from "../../../types/ethers-contracts/DScore";
 
 
 export interface ContractAddresses {
@@ -19,17 +19,17 @@ export interface ContractAddresses {
 }
 
 export interface Contracts {
-  DecentraCore: DecentraCore;
+  DScore: DScore;
 }
 
-function useDContracts(): Maybe<Contracts> {
+function useDScoreContracts(): Maybe<Contracts> {
   const context = useWeb3React<Web3Provider>();
   const { library, account, active, chainId } = context;
   const contracts = useMemo((): Maybe<Contracts> => {
     if (!active || !library) return Maybe.nothing();
     return Maybe.of({
-      DecentraCore: DecentraCore__factory.connect(
-        addresses[chainIdToNetworkType(chainId!)].DecentraCore,
+      DScore: DScore__factory.connect(
+        addresses[chainIdToNetworkType(chainId!)].DScore,
         library.getSigner(),
       ),
     });
@@ -37,4 +37,4 @@ function useDContracts(): Maybe<Contracts> {
   return contracts;
 }
 
-export { useDContracts };
+export { useDScoreContracts };

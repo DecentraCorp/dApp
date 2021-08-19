@@ -5,31 +5,28 @@ import { useMemo } from 'react';
 import addresses from './address';
 import { Maybe } from 'true-myth';
 import { chainIdToNetworkType } from './networks';
-import {DecentraCore__factory} from '../../../types/ethers-contracts/factories/DecentraCore__factory';
-import { DecentraCore } from "../../../types/ethers-contracts/DecentraCore";
+import {DecentraBank__factory} from '../../../types/ethers-contracts/factories/DecentraBank__factory';
+import { DecentraBank } from "../../../types/ethers-contracts/DecentraBank";
 
 
 export interface ContractAddresses {
-    DecentraStock: string;
-    DecentraDollar: string; 
-    DScore: string;
     DecentraCore: string;
     DecentraBank: string;
 
 }
 
 export interface Contracts {
-  DecentraCore: DecentraCore;
+    DecentraBank: DecentraBank;
 }
 
-function useDContracts(): Maybe<Contracts> {
+function useDBankContracts(): Maybe<Contracts> {
   const context = useWeb3React<Web3Provider>();
   const { library, account, active, chainId } = context;
   const contracts = useMemo((): Maybe<Contracts> => {
     if (!active || !library) return Maybe.nothing();
     return Maybe.of({
-      DecentraCore: DecentraCore__factory.connect(
-        addresses[chainIdToNetworkType(chainId!)].DecentraCore,
+      DecentraBank: DecentraBank__factory.connect(
+        addresses[chainIdToNetworkType(chainId!)].DecentraBank,
         library.getSigner(),
       ),
     });
@@ -37,4 +34,4 @@ function useDContracts(): Maybe<Contracts> {
   return contracts;
 }
 
-export { useDContracts };
+export { useDBankContracts };
