@@ -1,9 +1,9 @@
 import React from 'react'
-import { mystyle } from 'styles'
+import { daostyle } from 'styles'
 
 export default function Dao() {
     return (
-        <div style={mystyle}>
+        <div style={daostyle}>
             I am a daopage
         </div>
     )

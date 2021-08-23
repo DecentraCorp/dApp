@@ -1,9 +1,9 @@
 import React from 'react'
-import { mystyle } from 'styles'
+import { daostyle } from 'styles'
 
 export default function Homepage() {
     return (
-        <div style={mystyle}>
+        <div style={daostyle}>
             I am Homepage
         </div>
     )

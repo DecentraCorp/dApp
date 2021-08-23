@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route,BrowserRouter as Router,Switch} from 'react-router-dom'
 import { backgroundstyle } from 'styles';
-import DexCard from '../src/components/bank/dex/card'
 import  {Background} from '../src/main'
 import logo from './logo.svg';
 import './App.css';
@@ -25,7 +24,6 @@ class App extends React.Component {
             
             </Route>
             <Route path="/dao" component={Dao}>
-             {/** <ReputationBoostrapper /> <Beehive> <BigHeader>*/} 
              
            
             </Route>
