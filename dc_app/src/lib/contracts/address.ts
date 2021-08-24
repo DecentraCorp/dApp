@@ -4,11 +4,11 @@ import { NETWORK_TYPES } from './networks';
 // TODO: remove any, fix network types
 const addresses: { [network in NETWORK_TYPES]: ContractAddresses } = {
   [NETWORK_TYPES.LOCAL]: {
-    DecentraStock: 0xB5cb4ec3ec818Bd7F40c9CACE96f70f47bbbFB62,
-    DecentraDollar: 0x3d6633369e4D07304aa27ffdb653E221ed25f918,
-    DScore: 0x24aa949Fe2445e4F3bb6f2072c1c44FeD45c89E0,
-    DecentraCore: 0x2BbeF6aC3Cc291aA3bA7116a6509A3990f46e010,
-    DecentraBank: 0x9837F2d66503CF2D283Eb5189c3dD744781da317
+    DecentraStock: 0xd1C7acdC170dB38F2Ac23bA6B3a6f32fBE13f833,
+    DecentraDollar: 0x89821A0648FB81f29bEF9148CF50CE4498269Fa7,
+    DScore: 0xc923F117396875E2Ca080C51d56815903d242f73,
+    DecentraCore: 0xfb821d4BD0027E80282F6F16E7550F9Ee8D21645,
+    DecentraBank: 0xB2a048B89D77AA8c8c023B5f82F0adc177F2D33E
   },
 } as any;
 
