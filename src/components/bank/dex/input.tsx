@@ -1,5 +1,6 @@
 import React from 'react'
 import { dexCardstyle, Inputstyle } from 'styles'
+import CircleButton from './circleButton'
 
 export default function DexInput() {
     const [AmountToSell, setAmountToSell] = React.useState("")
@@ -8,15 +9,18 @@ export default function DexInput() {
       }
     return (
         <div>
-         Swap From
+        
         <form>
        
           <label>
              <input style={Inputstyle}type="number" value={AmountToSell} onChange={handleChange} />
           </label>
+          <CircleButton/>
         </form>
+         Swap To 
         <div style={Inputstyle}>
-        <h5>Swap To {AmountToSell}</h5>
+             
+        <h5>{AmountToSell}</h5>
         </div>
       </div>
     )

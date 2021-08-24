@@ -76,34 +76,47 @@ export const togglestyle={
 }
 export const buttonstyle ={
  backgroundColor:'#82ca9d',
- color:'white',
+ color:'black',
  fontSize:'20px',
  height:'6vh',
- width:'80%',
- marginLeft:'10%',
- marginTop:'20%',
+ width:'100%',
  cursor:'pointer',
-opacity:'.99'
+ marginTop:'30%',
+}
+export const CircleButtonstyle={
+ backgroundColor:'#82ca9d',
+ color:'white',
+ fontSize:'20px',
+ height:'10%',
+ width:'10%',
+ marginLeft:'45%',
+ marginTop:'10%',
+ cursor:'pointer',
 }
 export const InputBoxstyle={
-    background:'#353B3B',
-    width:'80%',
-    height:'15%'
+    height:'20vh',
+    marginLeft:'auto',
+    marginRight:'auto'
 }
+
 
 export const Inputstyle={
     background:'#353B3B',
     border:'none',
-    color:'white'
+    color:'white',
+    height:'4vh',
+    width:'100%'
 }
+
 
 export const dexCardstyle={
     display:'flex',
     flexDirection:'column',
     alignContent:'middle ',
     overflow:'wrap',
-    width:300,
-    height:350,
+    padding:25,
+    width:275,
+    height:325,
     marginLeft:'auto',
     marginRight:'10vw',
     borderRadius:'12px',

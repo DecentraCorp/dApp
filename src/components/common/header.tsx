@@ -20,6 +20,9 @@ import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from 's
               <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
                   DecentraCorp DAO
               </NavLink>
+              <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
+                 
+              </NavLink>
           </nav>
       )
   }

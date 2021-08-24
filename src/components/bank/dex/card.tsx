@@ -9,7 +9,6 @@ export default function DexCard() {
         <div style={dexCardstyle as React.CSSProperties}>
             <Toggle/>
             <InputBox/>
-          
             <DexButton/>
         </div>
     )
