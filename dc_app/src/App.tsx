@@ -1,5 +1,5 @@
 // - React Imports
-import React from 'react';
+import React, { useState } from 'react';
 import { Route,Switch, HashRouter} from 'react-router-dom'
 
 // - Css Imports
@@ -15,37 +15,63 @@ import Dao from './components/dao/dao';
 import Homepage from './components/homepage/homepage';
 
 //- Web3 Imports
-import { Web3ReactProvider } from '@web3-react/core';
+import { useWeb3React, Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
-class App extends React.Component {
-  render() {
-    return ( 
+
+// - Apollo Imports
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import Wallet from './components/userWallet/wallet';
+import Topbar from './components/homepage/topbar';
+
+// Web3 Wallet
+function getLibrary(provider: any): Web3Provider {
+	const library = new Web3Provider(provider);
+	library.pollingInterval = 12000;
+	return library;
+}
+
+// - Apollo Client 
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_SUBGRAPH_URL_1,
+  cache: new InMemoryCache(),
+});
+
+function App() {
+  return (
     <HashRouter>
-        <div style={backgroundstyle}>
+               <div style={backgroundstyle}>
+
           <Header/>
-            <Switch>
+
+          <Switch>
             
-            <Route exact path="/" component={Homepage}>
+          <Route exact path="/" component={Homepage}>
+          <Topbar />
              
-            </Route>
-            <Route path="/bank" component={Bank}>
+           </Route>
+          <Route path="/bank" component={Bank}>
             
-            </Route>
-            <Route path="/dao" component={Dao}>
+          </Route>
+         <Route path="/dao" component={Dao}>
              
            
-            </Route>
+          </Route>
            
-          </Switch>
-        </div>
+           </Switch>
+            </div>
       
-    </HashRouter>
-      
-    )
-  }
+           </HashRouter>
+  );
 }
      
-    
-  
+function wrappedApp() {
+  return (
+    <ApolloProvider client={client}>
+      <Web3ReactProvider getLibrary={getLibrary}>
+          <App />
+      </Web3ReactProvider>
+    </ApolloProvider>
+  );
+}
 
-export default App;
+export default wrappedApp;

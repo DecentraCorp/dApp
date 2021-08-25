@@ -219,9 +219,41 @@ export default function Wallet() {
 		active,
 		error,
 	} = context;
-	
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const showWallet = () => {
+		// setWalletVisible(true);
+	};
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const walletOk = () => {
+		// setWalletVisible(false);
+	};
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const walletCancel = () => {
+		// setWalletVisible(false);
+	};
 
+	// handle logic to recognize the connector currently being activated
 	const [activatingConnector, setActivatingConnector] = React.useState<any>();
+	// const [isWalletVisible, setWalletVisible] = useState(true);
+
+
+	// React.useEffect(() => {
+	//   if (
+	//     { isWalletVisible } &&
+	//     ((active && !activePrevious) ||
+	//       (connector && connector !== connectorPrevious && !error))
+	//   ) {
+	//     setWalletVisible(false);
+	//   }
+	// }, [
+	//   setWalletVisible,
+	//   active,
+	//   error,
+	//   connector,
+	//   isWalletVisible,
+	//   activePrevious,
+	//   connectorPrevious,
+	// ]);
 
 	React.useEffect(() => {
 		if (activatingConnector && activatingConnector === connector) {
