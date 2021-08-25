@@ -5,9 +5,9 @@
 Add a `.env` file to the base of the repository, replacing the brackets with the appropriate values:
 
 ```
-REACT_APP_RPC_URL_1=https://mainnet.infura.io/v3/[someMainnetNode]
-REACT_APP_RPC_URL_42=https://kovan.infura.io/v3/[someKovanNode]
-REACT_APP_SUBGRAPH_URL_42=https://api.thegraph.com/[subgraphLocation]
+REACT_APP_RPC_URL_1=https://mainnet.infura.io/v3/[Mainnet]
+REACT_APP_RPC_URL_42=https://kovan.infura.io/v3/[Kovan]
+REACT_APP_SUBGRAPH_URL_42=https://api.thegraph.com/[subgraph]
 ```
 
 Run [Node Version Manager](https://github.com/nvm-sh/nvm) to use the supported version of Node, ensuring it is installed on your system:
