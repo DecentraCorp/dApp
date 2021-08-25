@@ -23,7 +23,7 @@ export const injected = new MetaMask({
 });
 
 export const network = new Network({
-  urls: { 1: RPC_URLS[1], 4: RPC_URLS[4] },
+  urls: { 1: RPC_URLS[1], 42: RPC_URLS[42] },
   defaultChainId: 1,
 });
 
