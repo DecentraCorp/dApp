@@ -5,8 +5,8 @@ import { useMemo } from 'react';
 import addresses from './address';
 import { Maybe } from 'true-myth';
 import { chainIdToNetworkType } from './networks';
-import {DecentraStock__factory} from '../../../../types/ethers-contracts/factories/DecentraStock__factory';
-import { DecentraStock } from "../../../../types/ethers-contracts/DecentraStock";
+import {DecentraStock__factory} from '../../types/factories/DecentraStock__factory';
+import { DecentraStock } from "../../types/DecentraStock";
 
 
 export interface ContractAddresses {

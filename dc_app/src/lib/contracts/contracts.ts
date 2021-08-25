@@ -3,10 +3,10 @@ import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import { useMemo } from 'react';
 import addresses from './address';
-import { Maybe } from 'true-myth';
+import Maybe from 'true-myth/maybe';
 import { chainIdToNetworkType } from './networks';
-import {DecentraCore__factory} from '../../../../types/ethers-contracts/factories/DecentraCore__factory';
-import { DecentraCore } from "../../../../types/ethers-contracts/DecentraCore";
+import {DecentraCore__factory} from '../../types/factories/DecentraCore__factory';
+import { DecentraCore } from "../../types/DecentraCore";
 
 
 export interface ContractAddresses {

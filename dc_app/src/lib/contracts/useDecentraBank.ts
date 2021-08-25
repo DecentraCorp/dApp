@@ -5,13 +5,13 @@ import { useMemo } from 'react';
 import addresses from './address';
 import { Maybe } from 'true-myth';
 import { chainIdToNetworkType } from './networks';
-import {DecentraBank__factory} from '../../../../types/ethers-contracts/factories/DecentraBank__factory';
-import { DecentraBank } from "../../../../types/ethers-contracts/DecentraBank";
+import {DecentraBank__factory} from '../../types/factories/DecentraBank__factory';
+import { DecentraBank } from "../../types/DecentraBank";
 
 
 export interface ContractAddresses {
     DecentraCore: string;
-    DecentraBank: string;
+    DecentraBank: string; 
 
 }
 

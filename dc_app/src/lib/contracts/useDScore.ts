@@ -5,8 +5,8 @@ import { useMemo } from 'react';
 import addresses from './address';
 import { Maybe } from 'true-myth';
 import { chainIdToNetworkType } from './networks';
-import {DScore__factory} from '../../../../types/ethers-contracts/factories/DScore__factory';
-import { DScore } from "../../../../types/ethers-contracts/DScore";
+import {DScore__factory} from '../../types/factories/DScore__factory';
+import { DScore } from "../../types/DScore";
 
 
 export interface ContractAddresses {
