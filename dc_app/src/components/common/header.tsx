@@ -9,13 +9,10 @@ import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from 's
       return(
           <nav style={navbarstyle}>
               <NavLink style={headerTextstyle}exact activeClassName="active"to="/">
+                  Home Page &nbsp;
+              </NavLink>
+              <NavLink style={headerTextstyle}exact activeClassName="active"to="/bank">
                   DecentraBank &nbsp;
-              </NavLink>
-              <NavLink style={routerBoxStyle}exact activeClassName="active"to="/bank">
-                  DecentraStock &nbsp;
-              </NavLink>
-              <NavLink style={routerTextstyle}exact activeClassName="active"to="/dollar">
-                  DecentraDollar &nbsp;
               </NavLink>
               <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
                   DecentraCorp DAO

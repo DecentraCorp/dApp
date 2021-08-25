@@ -237,24 +237,6 @@ export default function Wallet() {
 	// const [isWalletVisible, setWalletVisible] = useState(true);
 
 
-	// React.useEffect(() => {
-	//   if (
-	//     { isWalletVisible } &&
-	//     ((active && !activePrevious) ||
-	//       (connector && connector !== connectorPrevious && !error))
-	//   ) {
-	//     setWalletVisible(false);
-	//   }
-	// }, [
-	//   setWalletVisible,
-	//   active,
-	//   error,
-	//   connector,
-	//   isWalletVisible,
-	//   activePrevious,
-	//   connectorPrevious,
-	// ]);
-
 	React.useEffect(() => {
 		if (activatingConnector && activatingConnector === connector) {
 			setActivatingConnector(undefined);
@@ -269,12 +251,6 @@ export default function Wallet() {
 
 	return (
 		<>
-			{/* <Modal
-        visible={isWalletVisible}
-        onOk={walletOk}
-        onCancel={walletCancel}
-        footer={null}
-      > */}
 			{Header()}
 
 			<div className="wallet-container border-pink-glow">
@@ -404,7 +380,7 @@ export default function Wallet() {
 					</a>
 				</div>
 			</div>
-			{/* </Modal> */}
+	
 		</>
 	);
 }
