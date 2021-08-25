@@ -1,29 +1,25 @@
 export function UseDbank () {
 
-    const _setup = () => {
+    const _purchaseStock = (_amount: any, _tokenType: any) => {
 
     }
 
-    const _purchaseStock = () => {
+    const _sellStock = (_amount: any) => {
 
     }
-
-    const _sellStock = () => {
-
-    }
-    const _addNewCollateralType = () => {
+    const _addNewCollateralType = (_collateral: any) => {
 
     }
-    const _fundWithdrawl = () => {
+    const _fundWithdrawl = (_to: any, _type: any, _amount: any) => {
 
     }
-    const _calculatePoolBa = () => {
+    const _calculatePoolBal = () => {
 
     }
-    const _calculatePurchase = () => {
+    const _calculatePurchase = (_dollarAmount: any) => {
 
     }
-    const _calculateSale = () => {
+    const _calculateSale = (_stockAmount: any) => {
 
     }    
     return {}
