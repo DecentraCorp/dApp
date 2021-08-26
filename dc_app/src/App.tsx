@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Route,Switch, HashRouter} from 'react-router-dom'
 
 // - Css Imports
-import { backgroundstyle } from 'styles';
+import { backgroundstyle } from './styles';
 import  {Background} from '../src/main'
 import logo from './logo.svg';
 import './App.css';
