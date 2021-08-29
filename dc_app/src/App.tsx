@@ -15,16 +15,18 @@ import Dao from './components/dao/dao';
 import Homepage from './components/homepage/homepage';
 
 //- Web3 Imports
-import { useWeb3React, Web3ReactProvider } from '@web3-react/core';
+import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 
 // - Apollo Imports
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Wallet from './components/userWallet/wallet';
 import Topbar from './components/homepage/topbar';
 
 // Web3 Wallet
 function getLibrary(provider: any): Web3Provider {
+  console.log(
+		'line 28',
+	);
 	const library = new Web3Provider(provider);
 	library.pollingInterval = 12000;
 	return library;

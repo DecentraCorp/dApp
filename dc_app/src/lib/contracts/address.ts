@@ -3,7 +3,7 @@ import { NETWORK_TYPES } from './networks';
 
 // TODO: remove any, fix network types
 const addresses: { [network in NETWORK_TYPES]: ContractAddresses } = {
-  [NETWORK_TYPES.LOCAL]: {
+  [NETWORK_TYPES.KOVAN]: {
     DecentraStock: 0xd1C7acdC170dB38F2Ac23bA6B3a6f32fBE13f833,
     DecentraDollar: 0x89821A0648FB81f29bEF9148CF50CE4498269Fa7,
     DScore: 0xc923F117396875E2Ca080C51d56815903d242f73,

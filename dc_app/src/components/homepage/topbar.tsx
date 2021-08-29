@@ -11,6 +11,9 @@ const Topbar: FC = () => {
 	console.log(account, 'account');
 	const { active} = context;
 
+    console.log(Web3Provider, 'line 14')
+    console.log(account, 'line 15')
+    console.log(context, 'line 16')
 	const [isModalVisible, setIsModalVisible] = useState(false);
 
 	const showModal = () => {

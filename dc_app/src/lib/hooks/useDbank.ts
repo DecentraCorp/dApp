@@ -1,90 +1,116 @@
 // - Contract Imports 
-import { useDBankContracts } from "../contracts/useDecentraBank"
+import { useDContracts } from "../contracts/contracts";
+
+// - Web3 Imports 
+import { ethers } from "ethers";
+
+// - Type Imports 
+import { PurchaseStock, SellStock, AddCollateral, FundWithdrawl, CalculatePurchase, CalculateSale, Maybe } from "../utils/types";
+
 
 export function UseDbank () {
 
     // Contracts
-    const contract = useDBankContracts()
+    const Dbank = useDContracts()?.DBank
 
+    const _purchaseStock = async (
+		params: PurchaseStock,
+	): Promise<ethers.ContractTransaction> => {
 
-    const _purchaseStock = (_amount: any, _tokenType: any) => {
+		let tx: Maybe<ethers.ContractTransaction>;
+		try {
+			tx = await Dbank!.purchaseStock(
+				params._amount,
+				params._tokenType,
+			);
+		} catch (e: any) {
+			console.error(e);
+			if (e.code === 4001) {
+				throw Error(`Transaction rejected by your wallet`);
+			}
+			throw Error(`Failed to submit transaction.`);
+		}
 
-    if(contract.isJust()){
-        contract.value.DecentraBank.purchaseStock(
-            _amount,
-            _tokenType
-        ).then(async (txr: any) => {
-                let _tx = await txr.wait(1);
-                console.log(_tx, 'Stock Purchased')
-            }).catch((err: any) => {
-                let _er = err
-                console.log(_er, 'Failed to purchase stock')
-            })
-    }
+		return tx;
+	};
 
-    }
+    const _sellStock = async (
+		params: SellStock,
+	): Promise<ethers.ContractTransaction> => {
 
+		let tx: Maybe<ethers.ContractTransaction>;
+		try {
+			tx = await Dbank!.sellStock(
+				params._amount,
+			);
+		} catch (e: any) {
+			console.error(e);
+			if (e.code === 4001) {
+				throw Error(`Transaction rejected by your wallet`);
+			}
+			throw Error(`Failed to submit transaction.`);
+		}
 
-    const _sellStock = (_amount: any) => {
-        if(contract.isJust()){
-            contract.value.DecentraBank.sellStock(
-                _amount
-            ).then(async (txr: any) => {
-                    let _tx = await txr.wait(1);
-                    console.log(_tx, 'Stock Sold')
-                }).catch((err: any) => {
-                    let _er = err
-                    console.log(_er, 'Failed to sell stock')
-                })
-        }
+		return tx;
+	};
 
-    }
+    const _addNewCollateralType = async (
+		params: AddCollateral,
+	): Promise<ethers.ContractTransaction> => {
 
+		let tx: Maybe<ethers.ContractTransaction>;
 
-    const _addNewCollateralType = (_collateral: any) => {
-        if(contract.isJust()){
-            contract.value.DecentraBank.addNewCollateralType(
-                _collateral
-            ).then(async (txr: any) => {
-                    let _tx = await txr.wait(1);
-                    console.log(_tx, 'New Collateral Added')
-                }).catch((err: any) => {
-                    let _er = err
-                    console.log(_er, 'Failed to add collateral')
-                })
-        }
+		try {
+			tx = await Dbank!.addNewCollateralType(
+				params._collateral,
+				
+			);
+		} catch (e: any) {
+			console.error(e);
+			if (e.code === 4001) {
+				throw Error(`Transaction rejected by your wallet`);
+			}
+			throw Error(`Failed to submit transaction.`);
+		}
 
-    }
+		return tx;
+	};
 
+    const _fundWithdrawl = async (
+		params: FundWithdrawl,
+	): Promise<ethers.ContractTransaction> => {
 
-    const _fundWithdrawl = (_to: any, _type: any, _amount: any) => {
-        if(contract.isJust()){
-            contract.value.DecentraBank.fundWithdrawl(
-                _to,
-                _type,
-                _amount
-            ).then(async (txr: any) => {
-                    let _tx = await txr.wait(1);
-                    console.log(_tx, 'Success')
-                }).catch((err: any) => {
-                    let _er = err
-                    console.log(_er, 'Failed to withdraw')
-                })
-        }
+		let tx: Maybe<ethers.ContractTransaction>;
+		try {
+			tx = await Dbank!.fundWithdrawl(
+				params._to,
+				params._type,
+                params._amount
+			);
+		} catch (e: any) {
+			console.error(e);
+			if (e.code === 4001) {
+				throw Error(`Transaction rejected by your wallet`);
+			}
+			throw Error(`Failed to submit transaction.`);
+		}
 
-    }
+		return tx;
+	};
+
 
 
     const _calculatePoolBal = () => {
-        if(contract.isJust()){
-            contract.value.DecentraBank.calculatePoolBal() }
+        if(Dbank?.isJust()){
+            Dbank?.value.DecentraBank.calculatePoolBal() }
     }
 
-
-    const _calculatePurchase = (_dollarAmount: any) => {
-        if(contract.isJust()){
-            contract.value.DecentraBank.calculatePurchase(
-                _dollarAmount
+  
+    const _calculatePurchase =  (_dollarAmount: any) => {
+        console.log(_dollarAmount, 'line 85')
+        if(Dbank?.isJust()){
+            Dbank?.calculatePurchase(
+                ethers.BigNumber.from(_dollarAmount)
             ).then(async (txr: any) => {
                     let _tx = await txr.wait(1);
                     console.log(_tx, 'Success')
@@ -97,8 +123,8 @@ export function UseDbank () {
 
 
     const _calculateSale = (_stockAmount: any) => {
-        if(contract.isJust()){
-            contract.value.DecentraBank.calculateSale(
+        if(Dbank?.isJust()){
+            Dbank?.value.DecentraBank.calculateSale(
                 _stockAmount
             ).then(async (txr: any) => {
                     let _tx = await txr.wait(1);
