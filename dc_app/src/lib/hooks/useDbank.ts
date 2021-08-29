@@ -5,7 +5,7 @@ import { useDContracts } from "../contracts/contracts";
 import { ethers } from "ethers";
 
 // - Type Imports 
-import { PurchaseStock, SellStock, AddCollateral, FundWithdrawl, CalculatePurchase, CalculateSale, Maybe } from "../utils/types";
+import { PurchaseStock, SellStock, AddCollateral, FundWithdrawl, Maybe } from "../utils/types";
 
 
 export function UseDbank () {

@@ -32,11 +32,12 @@ export const walletconnect = new WalletConnectConnector({
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: POLLING_INTERVAL,
+  supportedChainIds: [1, 42],
 });
 
 export const walletlink = new WalletLinkConnector({
   url: RPC_URLS[1],
-  appName: 'web3-react example',
+  appName:'Dectracorp',
 });
 
 export const ledger = new LedgerConnector({

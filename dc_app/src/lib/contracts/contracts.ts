@@ -10,7 +10,7 @@ import addresses from './address';
 import * as ethers from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
-import { chainIdToNetworkType, NETWORK_TYPES } from './networks';
+import { chainIdToNetworkType, defaultNetworkId, NETWORK_TYPES } from './networks';
 
 // - Type Imports 
 import {DScore__factory} from '../../types/factories/DScore__factory';
@@ -27,11 +27,11 @@ import { DecentraCore } from "../../types/DecentraCore";
 
  
 export interface ContractAddresses {
-    DecentraStock: string;
-    DecentraDollar: string; 
-    DScore: string;
-    DecentraCore: string;
-    DecentraBank: string;
+    DStock: string;
+    DDollar: string; 
+    Dscore: string;
+    DCore: string;
+    DBank: string;
 
 }
 
@@ -40,7 +40,7 @@ export interface Contracts {
   DBank: DecentraBank;
   DDollar: DecentraDollar;
   DStock: DecentraStock;
-  DScore: DScore;
+  Dscore: DScore;
 }
 
 function useDContracts() : Contracts | null {
@@ -52,7 +52,7 @@ function useDContracts() : Contracts | null {
 			ethers.constants.AddressZero,
 		);
 		if (!library) {
-			contracts = addresses[chainIdToNetworkType(42)];
+			contracts = addresses[chainIdToNetworkType(defaultNetworkId)];
 		} else {
 			if (!chainId) {
 				console.error(`No chainid detected;`);
@@ -69,17 +69,11 @@ function useDContracts() : Contracts | null {
 		}
 
 		return {
-			DCore: DecentraCore__factory.connect(contracts.DecentraCore, signer),
-			DBank: DecentraBank__factory.connect(
-				contracts.DecentraBank,
-				signer,
-			),
-			DDollar: DecentraDollar__factory.connect(
-				contracts.DecentraDollar,
-				signer,
-			),
-			DScore: DScore__factory.connect(contracts.DScore, signer),
-			DStock: DecentraStock__factory.connect(contracts.DecentraStock, signer),
+			DCore: DecentraCore__factory.connect(contracts.DCore, signer),
+			DBank: DecentraBank__factory.connect(contracts.DBank, signer),
+			DDollar: DecentraDollar__factory.connect(contracts.DDollar, signer),
+			Dscore: DScore__factory.connect(contracts.Dscore, signer),
+			DStock: DecentraStock__factory.connect(contracts.DStock, signer),
 		};
 	}, [active, library, chainId]);
 	return contract;
