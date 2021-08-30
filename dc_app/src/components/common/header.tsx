@@ -1,10 +1,7 @@
 import {
-    HashRouter,
-    Switch,
-    Route,
     NavLink
   } from 'react-router-dom'
-import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from 'styles'
+import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from '../../styles'
   export function Header(){
       return(
           <nav style={navbarstyle}>

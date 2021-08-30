@@ -1,13 +1,21 @@
 import React from 'react'
-import { dexCardstyle, Inputstyle } from 'styles'
+import { dexCardstyle, Inputstyle } from '../../../styles'
+import { buttonstyle} from '../../../styles'
 import CircleButton from './circleButton'
 
+//- Contract imports
+import { UseDbank } from '../../../lib/hooks/useDbank'
+
 export default function DexInput() {
-    const [AmountToSell, setAmountToSell] = React.useState("")
+
+  const { _calculatePurchase } = UseDbank()
+
+    const [AmountToSell, setAmountToSell] = React.useState<any>(0)
     function handleChange (e:any) {
         setAmountToSell(e.target.value)
       }
     return (
+      <>
         <div>
         
         <form>
@@ -23,6 +31,14 @@ export default function DexInput() {
         <h5>{AmountToSell}</h5>
         </div>
       </div>
+
+<div>
+<button style={buttonstyle as React.CSSProperties} >
+    Swap
+</button>
+{console.log(AmountToSell, 'line 39')}
+</div>
+</>
     )
 }
    

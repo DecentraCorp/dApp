@@ -1,14 +1,11 @@
 import React from 'react'
-import { togglestyle } from 'styles'
+import { togglestyle } from '../../styles'
 
 export default function Toggle() {
     
     return (
         <div style={togglestyle}>
-             <input
-          type="checkbox"
-         
-        />
+             <input type="checkbox"/>
         <label className="toggle-switch-label" htmlFor="toggleSwitch">
          
         </label>

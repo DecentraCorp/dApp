@@ -3,8 +3,13 @@ export enum NETWORK_TYPES {
     RINKEBY = "RINKEBY",
     ROPSTEN = "ROPSTEN",
     LOCAL = "LOCAL",
+    KOVAN = 'KOVAN'
   }
   
+  export const defaultNetworkId: number = Number(
+    42,
+  );
+
   export const chainIdToNetworkType = (chainId: number): NETWORK_TYPES => {
     switch (chainId) {
       case 1:
@@ -13,6 +18,8 @@ export enum NETWORK_TYPES {
         return NETWORK_TYPES.ROPSTEN;
       case 4:
         return NETWORK_TYPES.RINKEBY;
+        case 42:
+			return NETWORK_TYPES.KOVAN;
       default:
         return NETWORK_TYPES.LOCAL;
     }

@@ -14,7 +14,7 @@ import { TorusConnector } from '@web3-react/torus-connector';
 const POLLING_INTERVAL = 12000;
 const RPC_URLS: { [chainId: number]: string } = {
   1: process.env.REACT_APP_RPC_URL_1 as string,
-  4: process.env.REACT_APP_RPC_URL_4 as string,
+  // 4: process.env.NEXT_PUBLIC_REACT_APP_RPC_URL_4 as string,
   42: process.env.REACT_APP_RPC_URL_42 as string,
 };
 
@@ -32,11 +32,12 @@ export const walletconnect = new WalletConnectConnector({
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: POLLING_INTERVAL,
+  supportedChainIds: [1, 42],
 });
 
 export const walletlink = new WalletLinkConnector({
   url: RPC_URLS[1],
-  appName: 'web3-react example',
+  appName:'Dectracorp',
 });
 
 export const ledger = new LedgerConnector({
@@ -58,18 +59,18 @@ export const frame = new FrameConnector({ supportedChainIds: [1] });
 export const authereum = new AuthereumConnector({ chainId: 42 });
 
 export const fortmatic = new FortmaticConnector({
-  apiKey: process.env.FORTMATIC_API_KEY as string,
+  apiKey: process.env.WALLET_FORTMATIC_API as string,
   chainId: 42,
 });
 
 export const magic = new MagicConnector({
-  apiKey: process.env.MAGIC_API_KEY as string,
+  apiKey: process.env.WALLET_MAGIC_API as string,
   chainId: 4,
   email: 'hello@example.org',
 });
 
 export const portis = new PortisConnector({
-  dAppId: process.env.PORTIS_DAPP_ID as string,
+  dAppId: process.env.WALLET_PORTIS_ID as string,
   networks: [1, 100],
 });
 

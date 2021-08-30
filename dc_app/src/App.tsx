@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Route,Switch, HashRouter} from 'react-router-dom'
 
 // - Css Imports
-import { backgroundstyle } from 'styles';
+import { backgroundstyle } from './styles';
 import  {Background} from '../src/main'
 import logo from './logo.svg';
 import './App.css';
@@ -15,16 +15,19 @@ import Dao from './components/dao/dao';
 import Homepage from './components/homepage/homepage';
 
 //- Web3 Imports
-import { useWeb3React, Web3ReactProvider } from '@web3-react/core';
+import { Web3ReactProvider } from '@web3-react/core';
 import { Web3Provider } from '@ethersproject/providers';
 
 // - Apollo Imports
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Wallet from './components/userWallet/wallet';
 import Topbar from './components/homepage/topbar';
+import Wallet from './components/userWallet/wallet';
 
 // Web3 Wallet
 function getLibrary(provider: any): Web3Provider {
+  console.log(
+		'line 28',
+	);
 	const library = new Web3Provider(provider);
 	library.pollingInterval = 12000;
 	return library;
@@ -44,9 +47,12 @@ function App() {
           <Header/>
 
           <Switch>
+     {/* <Topbar /> */}
             
           <Route exact path="/" component={Homepage}>
-          <Topbar />
+    {/* Put this in a modal */}
+          <Wallet />
+
              
            </Route>
           <Route path="/bank" component={Bank}>
