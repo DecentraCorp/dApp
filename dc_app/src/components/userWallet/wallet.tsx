@@ -25,6 +25,8 @@ import {
 } from '../../lib/wallet/connectors';
 import { Spinner } from './spinner';
 import { AbstractConnector } from '@web3-react/abstract-connector';
+
+import Modal from 'antd/lib/modal/Modal';
 // import './wallet.scss';
 
 // import { METAMASK } from 'web3modal/dist/providers/injected';
@@ -33,15 +35,14 @@ import { AbstractConnector } from '@web3-react/abstract-connector';
 
 enum ConnectorNames {
 	MetaMask = 'MetaMask',
-	// Network = 'Network',
-	// WalletConnect = 'WalletConnect',
-	// WalletLink = 'WalletLink',
+	Network = 'Network',
+	WalletConnect = 'WalletConnect',
+	WalletLink = 'WalletLink',
 	// Ledger = 'Ledger',
 	// Trezor = 'Trezor',
 	// Frame = 'Frame',
-	// Fortmatic = 'Fortmatic',
+	Fortmatic = 'Fortmatic',
 	Portis = 'Portis',
-	// Network = 'Network',
 }
 
 const connectorsByName: {
@@ -49,14 +50,14 @@ const connectorsByName: {
 } = {
 	[ConnectorNames.MetaMask]: injected,
 
-	// [ConnectorNames.WalletConnect]: walletconnect,
-	// [ConnectorNames.WalletLink]: walletlink,
-	// [ConnectorNames.Network]: network,
+	[ConnectorNames.WalletConnect]: walletconnect,
+	[ConnectorNames.WalletLink]: walletlink,
+	[ConnectorNames.Network]: network,
 
 	// [ConnectorNames.Ledger]: ledger,
 	// [ConnectorNames.Trezor]: trezor,
 	// [ConnectorNames.Frame]: frame,
-	// [ConnectorNames.Fortmatic]: fortmatic,
+	[ConnectorNames.Fortmatic]: fortmatic,
 	[ConnectorNames.Portis]: portis,
 };
 
@@ -219,17 +220,19 @@ export default function Wallet() {
 		active,
 		error,
 	} = context;
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const showWallet = () => {
-		// setWalletVisible(true);
+
+	const [isModalVisible, setIsModalVisible] = React.useState(true);
+
+	const showModal = () => {
+		setIsModalVisible(true);
 	};
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const walletOk = () => {
-		// setWalletVisible(false);
+
+	const handleOk = () => {
+		setIsModalVisible(false);
 	};
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const walletCancel = () => {
-		// setWalletVisible(false);
+
+	const handleCancel = () => {
+		setIsModalVisible(false);
 	};
 
 	// handle logic to recognize the connector currently being activated
@@ -251,6 +254,17 @@ export default function Wallet() {
 
 	return (
 		<>
+		{/* <div id="topbar">
+			{account ? <div id="account">{account}</div> : null}
+			<button id="connect-btn" onClick={showModal}>
+				{active ? 'Connected' : 'Connect Wallet'}
+			</button>
+			</div>
+		<Modal
+				visible={isModalVisible}
+				onOk={handleOk}
+				onCancel={handleCancel}
+			> */}
 			{Header()}
 
 			<div className="wallet-container border-pink-glow">
@@ -380,6 +394,7 @@ export default function Wallet() {
 					</a>
 				</div>
 			</div>
+			{/* </Modal> */}
 	
 		</>
 	);

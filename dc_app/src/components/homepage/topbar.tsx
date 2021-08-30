@@ -35,11 +35,11 @@ const Topbar: FC = () => {
 				{active ? 'Connected' : 'Connect Wallet'}
 			</button>
 			<Modal
-				title="Basic Modal"
 				visible={isModalVisible}
 				onOk={handleOk}
 				onCancel={handleCancel}
 			>
+                
 				<Wallet />
 			</Modal>
 		</div>

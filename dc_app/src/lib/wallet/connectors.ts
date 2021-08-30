@@ -59,18 +59,18 @@ export const frame = new FrameConnector({ supportedChainIds: [1] });
 export const authereum = new AuthereumConnector({ chainId: 42 });
 
 export const fortmatic = new FortmaticConnector({
-  apiKey: process.env.FORTMATIC_API_KEY as string,
+  apiKey: process.env.WALLET_FORTMATIC_API as string,
   chainId: 42,
 });
 
 export const magic = new MagicConnector({
-  apiKey: process.env.MAGIC_API_KEY as string,
+  apiKey: process.env.WALLET_MAGIC_API as string,
   chainId: 4,
   email: 'hello@example.org',
 });
 
 export const portis = new PortisConnector({
-  dAppId: process.env.PORTIS_DAPP_ID as string,
+  dAppId: process.env.WALLET_PORTIS_ID as string,
   networks: [1, 100],
 });
 

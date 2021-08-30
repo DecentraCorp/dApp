@@ -21,6 +21,7 @@ import { Web3Provider } from '@ethersproject/providers';
 // - Apollo Imports
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Topbar from './components/homepage/topbar';
+import Wallet from './components/userWallet/wallet';
 
 // Web3 Wallet
 function getLibrary(provider: any): Web3Provider {
@@ -46,9 +47,12 @@ function App() {
           <Header/>
 
           <Switch>
+     {/* <Topbar /> */}
             
           <Route exact path="/" component={Homepage}>
-          <Topbar />
+    {/* Put this in a modal */}
+          <Wallet />
+
              
            </Route>
           <Route path="/bank" component={Bank}>

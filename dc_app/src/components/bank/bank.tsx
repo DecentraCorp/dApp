@@ -13,7 +13,6 @@ export default function Bank() {
             <ResChart/> 
             <Topbar/>
             <div>add token</div>
-     
             <div>widthdraw funds</div>
          <DexCard/>
          <div>
