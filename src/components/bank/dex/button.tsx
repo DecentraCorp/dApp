@@ -6,7 +6,7 @@ export default function DexButton() {
     return (
         <div>
            <button style={buttonstyle as React.CSSProperties}>
-               Swap
+              Swap
            </button>
         </div>
     )
