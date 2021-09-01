@@ -55,6 +55,7 @@
 		"react-scripts": "^4.0.3",
 		"react-spring": "^9.1.2",
 		"react-table": "^7.6.3",
+		"react-tiny-popover": "^7.0.0",
 		"react-window": "^1.8.6",
 		"recharts": "^2.1.0",
 		"true-myth": "^4.1.1",
