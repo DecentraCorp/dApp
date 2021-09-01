@@ -1,12 +1,12 @@
 import React from 'react'
-import { dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, tinytextstyle, converttextstyle } from 'styles'
+import { CircleButtonstyle, switchLogostyle ,dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, tinytextstyle, converttextstyle } from 'styles'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { useState } from 'react'
 import tokens from './tokens'
 import downArrow from 'assets/downArrow.svg'
-import CircleButton from './circleButton'
-import DropDownTo from './dropdownTo'
-import DropDownFrom from './dropdownFrom'
+import switchlogo from 'assets/switchLogo.svg'
+
+import {DropDownFrom,DropDownTo} from './dropdown'
 export default function DexInput() {
   const [AmountToSell, setAmountToSell] = React.useState("")
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
@@ -27,7 +27,9 @@ export default function DexInput() {
             </input>
           </div>
         </label>
-        <CircleButton />
+        <button style={CircleButtonstyle as React.CSSProperties}>
+           <img style ={switchLogostyle as React.CSSProperties}src={switchlogo} alt="arrows"/>
+           </button>
       </form>
       <div><p style={tinytextstyle}>Swap To:</p></div>
       <div style={InputBoxstyle as React.CSSProperties}>

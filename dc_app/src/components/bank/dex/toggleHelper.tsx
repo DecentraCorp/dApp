@@ -1,9 +1,7 @@
 import React from 'react'
 import {  toggleHelperstyleActive, toggleHelperstyleInactive } from 'styles'
 import Toggle from '../toggle'
-import DexButton from './button'
 import DexInput from './input'
-import InputBox from './inputbox'
  export function ToggleHelperSwap() {
     return (<>
         <div style ={toggleHelperstyleActive as React.CSSProperties}>
