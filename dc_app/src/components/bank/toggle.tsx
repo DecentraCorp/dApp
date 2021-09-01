@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxstyle,togglestyleLiq, togglestyleSwap, buttonstyle, tinytextstyle, toggleHelperstyleActive, toggleHelperstyleInactive} from 'styles'
-import {ToggleHelperLiq, ToggleHelperSwap} from './dex/toggleHelper'
 import {DropDownTo,DropDownFrom} from './dex/dropdown'
 import switchlogo from '../../assets/switchLogo.svg'
 const ToggleSwitch = () => {
