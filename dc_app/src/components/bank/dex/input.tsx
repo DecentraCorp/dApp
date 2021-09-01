@@ -5,13 +5,28 @@ import CircleButton from './circleButton'
 
 //- Contract imports
 import { UseDbank } from '../../../lib/hooks/useDbank'
+import { Maybe } from '../../../lib/utils/types'
+import { ethers } from 'ethers'
 
 export default function DexInput() {
 
-  const { _calculatePurchase } = UseDbank()
+  const dBank = UseDbank()
 
     const [AmountToSell, setAmountToSell] = React.useState<any>(0)
-    function handleChange (e:any) {
+
+    
+    const handlePurchase = async () => {
+      let tx: Maybe<ethers.ContractTransaction>;
+
+      tx = await dBank._purchaseStock({
+       _amount: AmountToSell,
+				_tokenType: '0x0000000000000000000000000000000000000000'
+      });
+    }
+
+    
+
+    const handleChange = (e:any) => {
         setAmountToSell(e.target.value)
       }
     return (
@@ -33,7 +48,8 @@ export default function DexInput() {
       </div>
 
 <div>
-<button style={buttonstyle as React.CSSProperties} >
+    
+<button style={buttonstyle as React.CSSProperties} onClick={handlePurchase} >
     Swap
 </button>
 {console.log(AmountToSell, 'line 39')}
