@@ -2,6 +2,7 @@ export const mainstyle={
     color: "white",
     fontFamily: "Arial",
   };
+
 export const daostyle={
     color: "white",
     backgroundColor: "#3FD89D",
@@ -283,6 +284,44 @@ export const dexCardstyle={
 }
 export const chartstyle ={
    
-    width:'50%',
+    display:'inline'
 }
+export const chartTextstyle={
+    marginLeft:'15%',
+    display:'flex',
+    flexDirection:'row',
+    color:'white',
+    alignItems:'center',
+}
+export const legendIconDCSstyle={
+  background:'#1FE5C1',
+  height:'3px',
+  width:'6px',
+  display:'flex',
+  marginTop:'auto',
+  marginBottom:'auto',
+  marginRight:'5px'
+}
+export const legendIconDAIstyle={
+    background:'#01FFA5',
+    height:'3px',
+    width:'6px',
+    display:'flex',
+    marginTop:'auto',
+    marginBottom:'auto',
+    marginRight:'5px'
 
+
+  }
+export const DCSstyle={
+color:'#1FE5C1',
+display:'flex',
+flexDirection:'row',
+}
+export const DAIstyle={
+color:'#01FFA5',
+display:'flex',
+flexDirection:'row',
+marginLeft:'5%'
+
+}

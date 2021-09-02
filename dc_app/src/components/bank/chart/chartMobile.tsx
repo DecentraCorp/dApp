@@ -12,7 +12,7 @@ export default function ChartMobile(){
   <YAxis />
   <Tooltip />
   <Legend />
-  <Line type="monotone" dataKey="line1" stroke="#8884d8" />
-  <Line type="monotone" dataKey="line2" stroke="#82ca9d" />
+  <Line type="monotone" dataKey="DCS" stroke="#8884d8" />
+  <Line type="monotone" dataKey="DAI" stroke="#82ca9d" />
 </LineChart>
 </ResponsiveContainer>)}
