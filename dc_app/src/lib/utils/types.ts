@@ -26,4 +26,10 @@ export interface CalculateSale {
     _stockAmount: any
 }
 
+export interface NewProposal {
+_target: any
+_proposalHash: any
+_callData: any
+}
+
 export type Maybe<T> = T | undefined | null;

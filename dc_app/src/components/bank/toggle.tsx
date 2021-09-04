@@ -2,15 +2,33 @@ import React, { useState } from 'react'
 import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxstyle,togglestyleLiq, togglestyleSwap, buttonstyle, tinytextstyle, toggleHelperstyleActive, toggleHelperstyleInactive} from '../../styles'
 import {DropDownTo,DropDownFrom} from './dex/dropdown'
 import switchlogo from '../../assets/switchLogo.svg'
+import { UseDbank } from '../../lib/hooks/useDbank'
+import { Maybe } from '../../lib/utils/types'
+import { ethers } from 'ethers'
 
 
 
 const ToggleSwitch = () => {
+
+  // State 
   const [toggle, setToggle] = useState(false)
   const [AmountToSell, setAmountToSell] = React.useState("")
+
+  // Contracts
+  const dBank = UseDbank()
+
+  const handleSwap = async () => {
+     dBank._purchaseStock({
+     _amount: AmountToSell,
+      _tokenType: '0x0000000000000000000000000000000000000000'
+    });
+  }
+
   function handleChange(e: any) {
     setAmountToSell(e.target.value)
   }
+
+
   return(
     <>
      {!toggle && (
@@ -28,20 +46,24 @@ const ToggleSwitch = () => {
             
         <div>
 
+
 <form>
 
   <label>
     <div style={InputBoxstyle as React.CSSProperties}>
     <DropDownTo/>
       <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
-      
       </input>
     </div>
   </label>
+
   <button style={CircleButtonstyle as React.CSSProperties}>
      <img style ={switchLogostyle as React.CSSProperties}src={switchlogo} alt="arrows"/>
      </button>
+
 </form>
+
+
 <div><p style={tinytextstyle}>Swap To:</p></div>
 <div style={InputBoxstyle as React.CSSProperties}>
 <DropDownFrom/>
@@ -56,8 +78,8 @@ const ToggleSwitch = () => {
 </div>
         </div>
         </div>
-            <button style={buttonstyle as React.CSSProperties}>
-              Swap
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSwap}>
+              Swaps
            </button>
       </>
       )}
@@ -109,7 +131,7 @@ const ToggleSwitch = () => {
         
         </div>
             
-            <button style={buttonstyle as React.CSSProperties}>
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSwap}>
               Swap
            </button>
            

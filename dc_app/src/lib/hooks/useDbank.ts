@@ -15,13 +15,15 @@ export function UseDbank () {
 
     const _purchaseStock = async (
 		params: PurchaseStock,
-	): Promise<ethers.ContractTransaction> => {
+	) => {
+		console.log(params._amount, params._tokenType, 'line 19 useDbank Hook')
 
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await Dbank!.purchaseStock(
-				params._amount,
-				params._tokenType,
+				ethers.BigNumber.from(params._amount),
+				ethers.BigNumber.from(params._tokenType),
+				{value: "0x0000000000000000000000000000000000000000"}
 			);
 		} catch (e: any) {
 			console.error(e);
@@ -55,14 +57,14 @@ export function UseDbank () {
 	};
 
     const _addNewCollateralType = async (
-		params: AddCollateral,
+		_collateral: any,
 	): Promise<ethers.ContractTransaction> => {
 
 		let tx: Maybe<ethers.ContractTransaction>;
 
 		try {
 			tx = await Dbank!.addNewCollateralType(
-				params._collateral,
+				_collateral,
 				
 			);
 		} catch (e: any) {
@@ -140,3 +142,4 @@ export function UseDbank () {
     
     return {_purchaseStock, _sellStock, _addNewCollateralType, _fundWithdrawl, _calculatePoolBal, _calculatePurchase, _calculateSale}
 }
+
