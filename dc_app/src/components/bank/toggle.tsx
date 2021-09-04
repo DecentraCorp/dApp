@@ -5,6 +5,7 @@ import switchlogo from '../../assets/switchLogo.svg'
 
 //- Contract imports 
 import { UseDbank } from '../../lib/hooks/useDbank'
+import { ethers } from 'ethers'
 
 
 
@@ -23,13 +24,22 @@ const ToggleSwitch = () => {
   const handleSwap = async () => {
 
    const tx = await dBank._purchaseStock({
-      _amount: AmountToSell,
-      _tokenType: 0
+      _amount: ethers.utils.parseUnits(AmountToSell, 'ether'),
+      _tokenType: '0x0000000000000000000000000000000000000000'
 			
 		});
 
     return tx
 
+  }
+
+  const handleSell = async () => {
+     
+    const tx = await dBank._sellStock({
+      _amount: ethers.utils.parseUnits(AmountToSell, 'ether')
+    })
+
+    return tx
   }
 
 
@@ -131,8 +141,8 @@ const ToggleSwitch = () => {
         
         </div>
             
-            <button style={buttonstyle as React.CSSProperties}>
-              Swap
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSell}>
+              Sell
            </button>
            
       </>

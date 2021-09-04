@@ -31,7 +31,7 @@ export function UseDbank () {
 			}
 			throw Error(`Failed to submit transaction.`);
 		}
-
+		console.log(tx, 'line 34 useDbank hook')
 		return tx;
 	};
 
@@ -42,7 +42,7 @@ export function UseDbank () {
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await Dbank!.sellStock(
-				params._amount,
+				ethers.BigNumber.from(params._amount),
 			);
 		} catch (e: any) {
 			console.error(e);
