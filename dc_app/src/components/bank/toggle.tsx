@@ -3,14 +3,36 @@ import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxs
 import {DropDownTo,DropDownFrom} from './dex/dropdown'
 import switchlogo from '../../assets/switchLogo.svg'
 
+//- Contract imports 
+import { UseDbank } from '../../lib/hooks/useDbank'
+
 
 
 const ToggleSwitch = () => {
+  // state
   const [toggle, setToggle] = useState(false)
   const [AmountToSell, setAmountToSell] = React.useState("")
-  function handleChange(e: any) {
+
+  // contracts
+  const dBank = UseDbank();
+
+  const handleChange = (e: any) => {
     setAmountToSell(e.target.value)
   }
+
+  const handleSwap = async () => {
+
+   const tx = await dBank._purchaseStock({
+      _amount: AmountToSell,
+      _tokenType: 0
+			
+		});
+
+    return tx
+
+  }
+
+
   return(
     <>
      {!toggle && (
@@ -56,7 +78,7 @@ const ToggleSwitch = () => {
 </div>
         </div>
         </div>
-            <button style={buttonstyle as React.CSSProperties}>
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSwap}>
               Swap
            </button>
       </>

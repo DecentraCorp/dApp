@@ -20,8 +20,9 @@ export function UseDbank () {
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await Dbank!.purchaseStock(
-				params._amount,
+				ethers.BigNumber.from(params._amount),
 				params._tokenType,
+				{value: ethers.BigNumber.from(params._amount)}
 			);
 		} catch (e: any) {
 			console.error(e);
