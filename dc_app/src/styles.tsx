@@ -98,7 +98,10 @@ export const bankstyle ={
 export const dropDownstyle={
     background:'#353B3B',
     color:'white',
-    height:'100%',
+    height:'35px',
+    display:'flex',
+    flexDirection:'row',
+    
 
 }
 export const maindropDownstyle={
@@ -111,13 +114,26 @@ export const maindropDownstyle={
   
 }
 export const dropDownstyle2={
-  width:'60%',
-  marginRight:'20px',
+  marginRight:'26px',
+  paddingLeft:'12px',
+  paddingRight:'10px',
+  paddingBottom:'1px',
   background:'#353B3B',
   height:'50%',
-  paddingLeft:'5px'
-  
-  
+}
+export const dropDownTextstyle={
+    alignText:'center',
+    marginTop:'-15px',
+ }
+ export const droppedstyle={
+     
+ }
+export const openDropstyle={
+    height:'100%',
+    border:'solid'
+}
+export const closeDropstyle={
+    
 }
 export const togglestyleSwap={
     display:'flex',
@@ -178,18 +194,7 @@ export const toggleTextstyle={
     //backgroundColor:'#82ca9d',
     padding:'10%'
 }
-export const dropDownTextstyle={
-    background:'#353B3B',
-    
 
- }
-export const openDropstyle={
-    height:'100%',
-    border:'solid'
-}
-export const closeDropstyle={
-    width:'20%'
-}
 export const connectbuttonstyle ={
  backgroundColor:'#01FFA5',
  color:'black',
@@ -234,7 +239,7 @@ export const InputBoxstyle={
     display:'flex',
     flexDirection:'row',
     margin:'auto',
-    height:'50%',
+    height:'50px',
     paddingLeft:'2.5%'
 }
 
@@ -249,7 +254,8 @@ export const Inputstyle={
     
 }
 export const tokenLogostyle={
-    height:'100%',
+    height:'25px',
+    marginTop:'auto',
     display:'flex',
     flexDirection:'row',
     background:'#353B3B',
@@ -258,9 +264,13 @@ export const popoverstyle={
    padding:'5%'
 }
 export const arrowstyle={
-    height:15,
-    marginLeft:'30%',
-    marginTop:'20%'
+    height:'10px',
+    width:'10px',
+    marginLeft:'75px',
+    display:'flex',
+}
+export const arrowHolder={
+    marginTop:'-15px',
 }
 
 export const dexCardstyle={

@@ -1,5 +1,5 @@
 import React from 'react'
-import { dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, popoverstyle, maindropDownstyle, dropDownstyle2, dropDownTextstyle } from 'styles'
+import { dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, popoverstyle, maindropDownstyle, dropDownstyle2, dropDownTextstyle, droppedstyle, closeDropstyle, arrowHolder } from 'styles'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { useState } from 'react'
 import tokens from './tokens'
@@ -13,7 +13,7 @@ function DropDownFrom() {
     <div style={tokenLogostyle as React.CSSProperties}>
       <img src={token.image} alt="tokenImage" />
       
-      <div style={dropDownTextstyle}>
+      <div style={dropDownTextstyle as React.CSSProperties}>
       <p>&nbsp;&nbsp;{token.tkr}</p></div></div>
       </div>)
  
@@ -25,14 +25,16 @@ function DropDownFrom() {
               content={<div style={dropDownstyle2}>{mappedTokens}
               </div>}>
 
-              <div style={dropDownstyle} onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
-                {<div >{mappedTokens[0]}
-
+              <div style={dropDownstyle as React.CSSProperties} onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+              {<div style={closeDropstyle as React.CSSProperties}>{mappedTokens[0]}
+                <div style={arrowHolder as React.CSSProperties}>
+                <img style={arrowstyle as React.CSSProperties} src={downArrow} alt={'arrow'} />
+                </div>
                 </div>
                 }
+
               </div>
             </Popover>
-            <img style={arrowstyle as React.CSSProperties} src={downArrow} alt={'arrow'} />
            
           </div>
        
@@ -47,7 +49,7 @@ function DropDownTo() {
     <div style={tokenLogostyle as React.CSSProperties}>
       <img src={token.image} alt="tokenImage" />
       
-      <div style={dropDownTextstyle}>
+      <div style={dropDownTextstyle as React.CSSProperties}>
       <p>&nbsp;&nbsp;{token.tkr}</p></div></div>
       </div>)
  
@@ -59,14 +61,16 @@ function DropDownTo() {
               content={<div style={dropDownstyle2}>{mappedTokens}
               </div>}>
 
-              <div style={dropDownstyle} onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
-                {<div >{mappedTokens[0]}
-
+              <div style={dropDownstyle as React.CSSProperties} onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                {<div style={closeDropstyle as React.CSSProperties}>{mappedTokens[0]}
+                <div style={arrowHolder as React.CSSProperties}>
+                <img style={arrowstyle as React.CSSProperties} src={downArrow} alt={'arrow'} />
+                </div>
                 </div>
                 }
+
               </div>
             </Popover>
-            <img style={arrowstyle as React.CSSProperties} src={downArrow} alt={'arrow'} />
            
           </div>
        
