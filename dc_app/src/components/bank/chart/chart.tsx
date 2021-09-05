@@ -10,8 +10,8 @@ export default function Chart(){
     <ResponsiveContainer width={475}height={400}>
 <LineChart data={data}>
   <CartesianGrid strokeDasharray=".2" />
-  <XAxis dataKey="name" />
-  <YAxis />
+  <XAxis dataKey="name" tickCount={9}/>
+  <YAxis tickCount={6}/>
   <Tooltip />
  
  

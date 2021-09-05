@@ -297,14 +297,17 @@ export const chartstyle ={
     zIndex:'1'
 }
 export const chartbackground={
-    background:'white',
-    opacity:'.2',
-    zIndex:'-1',
+    background: 'repeating-linear-gradient(to right,white 0 16.6%,transparent 16.6% 33.2%)',
+    opacity:'.05',
+    zIndex:'-3',
     height:'360px',
     width:'405px',
     marginLeft:'auto',
     marginRight:'5px',
     marginTop:'-395px',
+}
+export const chartbackgroundColumns={
+
 }
 export const chartTextstyle={
     marginLeft:'15%',
