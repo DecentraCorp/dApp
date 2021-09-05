@@ -7,11 +7,11 @@ export default function Chart(){
     return(
       <div style={chartstyle as React.CSSProperties}>
         
-    <ResponsiveContainer width={475}height={400}>
+    <ResponsiveContainer width={550}height={400}>
 <LineChart data={data}>
   <CartesianGrid strokeDasharray=".2" />
-  <XAxis dataKey="name" tickCount={9}/>
-  <YAxis tickCount={6}/>
+  <XAxis tick={false} dataKey="none"  />
+  <YAxis tickCount={7} />
   <Tooltip />
  
  
