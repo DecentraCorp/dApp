@@ -1,14 +1,15 @@
 import { Legend,ResponsiveContainer,LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import  data  from './data';
-import { chartstyle, chartTextstyle, DAIstyle, DCSstyle, legendIconDCSstyle,legendIconDAIstyle } from 'styles';
+import { chartstyle, chartTextstyle, DAIstyle, DCSstyle, legendIconDCSstyle,legendIconDAIstyle, chartbackground } from 'styles';
 import React from 'react';
 export default function Chart(){ 
     
     return(
-      <div style={chartstyle}>
+      <div style={chartstyle as React.CSSProperties}>
+        
     <ResponsiveContainer width={475}height={400}>
 <LineChart data={data}>
-  <CartesianGrid strokeDasharray="" />
+  <CartesianGrid strokeDasharray=".2" />
   <XAxis dataKey="name" />
   <YAxis />
   <Tooltip />
@@ -18,6 +19,8 @@ export default function Chart(){
   <Line type="monotone" dot={false}dataKey="DAI" stroke="#01FFA5" strokeWidth={3} />
 </LineChart>
 </ResponsiveContainer>
+<div style={chartbackground as React.CSSProperties}>
+        </div>
 <div style={chartTextstyle as React.CSSProperties}>
   
   <div style={DCSstyle as React.CSSProperties}>

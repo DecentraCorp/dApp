@@ -293,8 +293,18 @@ export const dexCardstyle={
 
 }
 export const chartstyle ={
-   
-    display:'inline'
+    display:'inline',
+    zIndex:'1'
+}
+export const chartbackground={
+    background:'white',
+    opacity:'.2',
+    zIndex:'-1',
+    height:'360px',
+    width:'405px',
+    marginLeft:'auto',
+    marginRight:'5px',
+    marginTop:'-395px',
 }
 export const chartTextstyle={
     marginLeft:'15%',
