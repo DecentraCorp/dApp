@@ -31,13 +31,14 @@ export function UseDbank () {
 			}
 			throw Error(`Failed to submit transaction.`);
 		}
-		console.log(tx, 'line 34 useDbank hook')
+		
 		return tx;
 	};
 
     const _sellStock = async (
 		params: SellStock,
 	): Promise<ethers.ContractTransaction> => {
+		console.log(params._amount, 'line 42 useDbank Hook')
 
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
@@ -54,6 +55,8 @@ export function UseDbank () {
 
 		return tx;
 	};
+
+	
 
     const _addNewCollateralType = async (
 		params: AddCollateral,
