@@ -1,5 +1,5 @@
 import React from 'react'
-import { dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, popoverstyle, maindropDownstyle, dropDownstyle2, dropDownTextstyle } from 'styles'
+import { dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, popoverstyle, maindropDownstyle, dropDownstyle2, dropDownTextstyle } from '../../../styles'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { useState } from 'react'
 import tokens from './tokens'

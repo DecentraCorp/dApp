@@ -13,12 +13,12 @@ export function UseDcore () {
     const _newProposal = async (
 		params: NewProposal,
 	) => {
-		console.log(params._target, params._proposalHash, params._callData, 'line 19 useDbank Hook')
+		console.log( params._proposalHash, params._callData, 'line 19 useDbank Hook')
 
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await contracts!.DCore.newProposal(
-                params._target,
+                '0xfb821d4BD0027E80282F6F16E7550F9Ee8D21645',
                 params._proposalHash,
                 params._callData,				
 			);
@@ -80,5 +80,5 @@ export function UseDcore () {
 
    
   
- return 
+ return {_newProposal,_newQuorum,_vote}
 }
