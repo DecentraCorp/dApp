@@ -1,5 +1,5 @@
 import React from 'react'
-import { daostyle } from 'styles'
+import { daostyle } from '../../styles'
 
 export default function Dao() {
     return (

@@ -1,24 +1,21 @@
 import React from 'react'
-import { bankstyle } from '../../styles'
-import DexCard from './dex/card'
+import { bankstyle,dexCardstyle } from '../../styles'
 import ResponsiveContainer from './chart/chart'
 import { ResChart } from './chart/responsiveChart'
+import Toggle from './toggle'
 import Topbar from '../homepage/topbar'
-import { UseDbank } from '../../lib/hooks/useDbank'
+import { ethers } from 'ethers'
+import { Provider } from '@ethersproject/providers'
 
 export default function Bank() {
-    const { _addNewCollateralType } = UseDbank()
     return (
         <div style={bankstyle as React.CSSProperties}>
             <ResChart/> 
-            <Topbar/>
-            <div>add token</div>
-            <div>widthdraw funds</div>
-         <DexCard/>
-         <div>
- 
-  
-</div>
+            
+            <div style={dexCardstyle as React.CSSProperties}>
+            <Toggle/>
+        </div>
+      
         </div>
     )
 }

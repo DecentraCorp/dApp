@@ -1,45 +1,49 @@
 import React from 'react'
-import { dexCardstyle, Inputstyle } from '../../../styles'
-import { buttonstyle} from '../../../styles'
-import CircleButton from './circleButton'
+import { CircleButtonstyle, switchLogostyle ,dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, tinytextstyle, converttextstyle } from '../../../styles'
+import { Popover, ArrowContainer } from 'react-tiny-popover'
+import { useState } from 'react'
+import tokens from './tokens'
+import downArrow from 'assets/downArrow.svg'
+import switchlogo from 'assets/switchLogo.svg'
 
-//- Contract imports
-import { UseDbank } from '../../../lib/hooks/useDbank'
+import {DropDownFrom,DropDownTo} from './dropdown'
 
 export default function DexInput() {
-
-  const { _calculatePurchase } = UseDbank()
-
-    const [AmountToSell, setAmountToSell] = React.useState<any>(0)
-    function handleChange (e:any) {
-        setAmountToSell(e.target.value)
-      }
-    return (
-      <>
-        <div>
-        
-        <form>
-       
-          <label>
-             <input style={Inputstyle}type="number" value={AmountToSell} onChange={handleChange} />
-          </label>
-          <CircleButton/>
-        </form>
-         Swap To 
-        <div style={Inputstyle}>
-             
-        <h5>{AmountToSell}</h5>
-        </div>
-      </div>
-
-<div>
-<button style={buttonstyle as React.CSSProperties} >
-    Swap
-</button>
-{console.log(AmountToSell, 'line 39')}
-</div>
-</>
-    )
-}
-   
+  const [AmountToSell, setAmountToSell] = React.useState("")
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   
+  function handleChange(e: any) {
+    setAmountToSell(e.target.value)
+  }
+  return (
+    <div>
+
+      <form>
+
+        <label>
+          <div style={InputBoxstyle as React.CSSProperties}>
+          <DropDownTo/>
+            <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
+            
+            </input>
+          </div>
+        </label>
+        <button style={CircleButtonstyle as React.CSSProperties}>
+           <img style ={switchLogostyle as React.CSSProperties}src={switchlogo} alt="arrows"/>
+           </button>
+      </form>
+      <div><p style={tinytextstyle}>Swap To:</p></div>
+      <div style={InputBoxstyle as React.CSSProperties}>
+      <DropDownFrom/>
+            <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
+            
+            </input>
+     
+      </div>
+      <div style = {converttextstyle as React.CSSProperties}>
+         <p>1 DCS = X dai</p>
+       </div>
+    </div>
+  )
+}
+
