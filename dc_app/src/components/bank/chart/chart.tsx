@@ -1,12 +1,11 @@
-import { Legend,ResponsiveContainer,LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { Text,Legend,ResponsiveContainer,LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import  data  from './data';
-import { chartstyle, chartTextstyle, DAIstyle, DCSstyle, legendIconDCSstyle,legendIconDAIstyle, chartbackground } from 'styles';
+import { chartstyle, chartTextstyle, chartbackground, tinytextstyle, xAxixText, yAxixText, legendstyle, tokenstyle, legendIconstyle, chartHolder } from 'styles';
 import React from 'react';
 export default function Chart(){ 
     
-    return(
+    return(<div style={chartHolder as React.CSSProperties}>
       <div style={chartstyle as React.CSSProperties}>
-        
     <ResponsiveContainer width={550}height={400}>
 <LineChart data={data}>
   <CartesianGrid strokeDasharray=".2" />
@@ -19,16 +18,19 @@ export default function Chart(){
   <Line type="monotone" dot={false}dataKey="DAI" stroke="#01FFA5" strokeWidth={3} />
 </LineChart>
 </ResponsiveContainer>
-<div style={chartbackground as React.CSSProperties}>
-        </div>
-<div style={chartTextstyle as React.CSSProperties}>
-  
-  <div style={DCSstyle as React.CSSProperties}>
-    <div style={legendIconDCSstyle as React.CSSProperties}/>
-    <div>DCS  </div></div>
-    <div style={DAIstyle as React.CSSProperties}>
-    <div style={legendIconDAIstyle as React.CSSProperties}/>
-    <div> DAI &nbsp; </div></div>
+<div style={chartbackground as React.CSSProperties}/>
+        <p style={xAxixText as React.CSSProperties}>
+    Amount of USD each DecentraStock token holds
+  <div style={legendstyle as React.CSSProperties}>
+    <div style={legendIconstyle as React.CSSProperties}/>
+    <div>DCS &nbsp; </div>
+    <div style={tokenstyle as React.CSSProperties}>
+    <div style={legendIconstyle as React.CSSProperties}/>
+    <div> DAI  </div></div>
 </div>
+    </p>
+    
+        
 
+</div>
 </div>)}
