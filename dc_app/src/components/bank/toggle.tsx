@@ -8,24 +8,39 @@ import { ethers } from 'ethers'
 
 
 
-const ToggleSwitch = () => {
 
-  // State 
+
+const ToggleSwitch = () => {
+  // state
   const [toggle, setToggle] = useState(false)
   const [AmountToSell, setAmountToSell] = React.useState("")
 
-  // Contracts
-  const dBank = UseDbank()
+  // contracts
+  const dBank = UseDbank();
 
-  const handleSwap = async () => {
-     dBank._purchaseStock({
-     _amount: AmountToSell,
-      _tokenType: '0x0000000000000000000000000000000000000000'
-    });
+  const handleChange = (e: any) => {
+    setAmountToSell(e.target.value)
   }
 
-  function handleChange(e: any) {
-    setAmountToSell(e.target.value)
+  const handleSwap = async () => {
+
+   const tx = await dBank._purchaseStock({
+      _amount: ethers.utils.parseUnits(AmountToSell, 'ether'),
+      _tokenType: '0x0000000000000000000000000000000000000000'
+			
+		});
+
+    return tx
+
+  }
+
+  const handleSell = async () => {
+     
+    const tx = await dBank._sellStock({
+      _amount: ethers.utils.parseUnits(AmountToSell, 'ether')
+    })
+
+    return tx
   }
 
 
@@ -79,7 +94,7 @@ const ToggleSwitch = () => {
         </div>
         </div>
             <button style={buttonstyle as React.CSSProperties} onClick={handleSwap}>
-              Swaps
+              Swap
            </button>
       </>
       )}
@@ -131,8 +146,8 @@ const ToggleSwitch = () => {
         
         </div>
             
-            <button style={buttonstyle as React.CSSProperties} onClick={handleSwap}>
-              Swap
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSell}>
+              Sell
            </button>
            
       </>

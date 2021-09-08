@@ -23,10 +23,7 @@ const Bank = () => {
             <div style={dexCardstyle as React.CSSProperties}>
             <Toggle/>
         </div>
-        
-        Add new colateral
-       
-        <button onClick={handleAdd}>Add Token</button>
+      
         </div>
     )
 }

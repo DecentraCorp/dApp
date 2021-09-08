@@ -38,6 +38,11 @@ export interface Quorum {
     _quorum: any
 }
 
+//- Decentra Score
+export interface StakeMember{
+    _stakeAmount: any
+}
+
 export interface Vote {
     _proposalID: any,
 }

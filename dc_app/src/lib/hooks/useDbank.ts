@@ -22,8 +22,8 @@ export function UseDbank () {
 		try {
 			tx = await Dbank!.purchaseStock(
 				ethers.BigNumber.from(params._amount),
-				ethers.BigNumber.from(params._tokenType),
-				{value: "0x0000000000000000000000000000000000000000"}
+				params._tokenType,
+				{value: ethers.BigNumber.from(params._amount)}
 			);
 		} catch (e: any) {
 			console.error(e);
@@ -32,18 +32,19 @@ export function UseDbank () {
 			}
 			throw Error(`Failed to submit transaction.`);
 		}
-
+		
 		return tx;
 	};
 
     const _sellStock = async (
 		params: SellStock,
 	): Promise<ethers.ContractTransaction> => {
+		console.log(params._amount, 'line 42 useDbank Hook')
 
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await Dbank!.sellStock(
-				params._amount,
+				ethers.BigNumber.from(params._amount),
 			);
 		} catch (e: any) {
 			console.error(e);
@@ -55,6 +56,8 @@ export function UseDbank () {
 
 		return tx;
 	};
+
+	
 
     const _addNewCollateralType = async (
 		_collateral: any,
@@ -143,3 +146,4 @@ export function UseDbank () {
     return {_purchaseStock, _sellStock, _addNewCollateralType, _fundWithdrawl, _calculatePoolBal, _calculatePurchase, _calculateSale}
 }
 
+ 
