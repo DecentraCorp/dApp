@@ -4,8 +4,8 @@ import {
     Route,
     NavLink
   } from 'react-router-dom'
-  import Topbar from 'components/homepage/topbar'
-import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from 'styles'
+  import Topbar from '../homepage/topbar'
+import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from '../../styles'
 import React from 'react'
   export function Header(){
       return(

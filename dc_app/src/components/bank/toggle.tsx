@@ -1,13 +1,48 @@
 import React, { useState } from 'react'
-import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxstyle,togglestyleLiq, togglestyleSwap, buttonstyle, tinytextstyle, toggleHelperstyleActive, toggleHelperstyleInactive} from 'styles'
+import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxstyle,togglestyleLiq, togglestyleSwap, buttonstyle, tinytextstyle, toggleHelperstyleActive, toggleHelperstyleInactive} from '../../styles'
 import {DropDownTo,DropDownFrom} from './dex/dropdown'
 import switchlogo from '../../assets/switchLogo.svg'
+
+//- Contract imports 
+import { UseDbank } from '../../lib/hooks/useDbank'
+import { ethers } from 'ethers'
+
+
+
 const ToggleSwitch = () => {
+  // state
   const [toggle, setToggle] = useState(false)
   const [AmountToSell, setAmountToSell] = React.useState("")
-  function handleChange(e: any) {
+
+  // contracts
+  const dBank = UseDbank();
+
+  const handleChange = (e: any) => {
     setAmountToSell(e.target.value)
   }
+
+  const handleSwap = async () => {
+
+   const tx = await dBank._purchaseStock({
+      _amount: ethers.utils.parseUnits(AmountToSell, 'ether'),
+      _tokenType: '0x0000000000000000000000000000000000000000'
+			
+		});
+
+    return tx
+
+  }
+
+  const handleSell = async () => {
+     
+    const tx = await dBank._sellStock({
+      _amount: ethers.utils.parseUnits(AmountToSell, 'ether')
+    })
+
+    return tx
+  }
+
+
   return(
     <>
      {!toggle && (
@@ -53,7 +88,7 @@ const ToggleSwitch = () => {
 </div>
         </div>
         </div>
-            <button style={buttonstyle as React.CSSProperties}>
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSwap}>
               Swap
            </button>
       </>
@@ -106,8 +141,8 @@ const ToggleSwitch = () => {
         
         </div>
             
-            <button style={buttonstyle as React.CSSProperties}>
-              Swap
+            <button style={buttonstyle as React.CSSProperties} onClick={handleSell}>
+              Sell
            </button>
            
       </>
