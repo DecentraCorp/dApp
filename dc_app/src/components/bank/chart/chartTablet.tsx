@@ -1,10 +1,10 @@
 import { Text,Legend,ResponsiveContainer,LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import  data  from './data';
-import { chartstyle, chartTextstyle, chartbackground, tinytextstyle, xAxixText, yAxixText, legendstyle, tokenstyle, legendIconstyle, chartHolder, chartbackgroundTablet, MobileChartHolder } from 'styles';
+import { chartstyle, chartTextstyle, chartbackground, tinytextstyle, xAxixText, yAxixText, legendstyle, tokenstyle, legendIconstyle, chartHolder, chartbackgroundTablet } from 'styles';
 import React from 'react';
-export default function ChartMobile(){ 
+export default function ChartTablet(){ 
     
-    return(<div style={MobileChartHolder as React.CSSProperties}>
+    return(<div style={chartHolder as React.CSSProperties}>
       <div style={chartstyle as React.CSSProperties}>
     <ResponsiveContainer width={350}height={400}>
 <LineChart data={data}>
