@@ -2,6 +2,7 @@ export const mainstyle={
     color: "white",
     fontFamily: "Arial",
   };
+
 export const daostyle={
     color: "white",
     backgroundColor: "#3FD89D",
@@ -14,12 +15,11 @@ export const daostyle={
 }
   export const navbarstyle={
     display:'grid',
-    width:'80%',
+    width:'100%',
     margin:'auto',
-    marginTop:'3%',
+    marginTop:'30px',
     alignText:'center',
     verticalAlign:'middle',
-    textAlign:'right',
     gridTemplateColumns:'repeat(5,auto)'
    
 }
@@ -72,51 +72,87 @@ export const routerTextstyle={
             color:'#01FFA5',
             }
     export const converttextstyle={
-         height:'5%',
+         height:'2.5%',
         width:'100%',
         display:'flex',
-        fontSize:'12px',
-        marginLeft:'70%',
+        fontSize:'75%',
+        marginLeft:'66.6%',
         color:'grey',
         marginBottom:'4%',
     }
     export const tinytextstyle={
        color:'grey',
        margin:'auto',
-       fontSize:'12px',
-       marginBottom:'2.5%'
+       fontSize:'75%',
     }
+    export const xAxixText={
+        color:'grey',
+        margin:'auto',
+        fontSize:'12px',
+        marginLeft:'64px',
+        paddingTop:'10px'
+     }
+     export const yAxixText={
+        color:'grey',
+        fontSize:'12px',
+        transform:'rotate(-90deg)',
+        marginBottom:'auto',
+        marginRight:'auto',
+     }
 
 export const bankstyle ={
+    width:'90%',
     display:'flex',
     flexDirection:"row",
-    alignContent:'middle',
-    wrap:'wrap',
-    marginTop:'10vh'
+    marginLeft:'auto',
+    marginRight:'auto',
+    alignContent:'center',
+    flexWrap:'wrap',
+    marginTop:'30px'
 }
 export const dropDownstyle={
     background:'#353B3B',
     color:'white',
-    height:'100%',
+    height:'150%',
+    display:'flex',
+    flexDirection:'row',
+    
 
 }
 export const maindropDownstyle={
-    width:'80%',
     background:'#353B3B',
     display:'flex',
     flexDirection:'row',
+    marginBottom:'auto',
     height:'50%',
     paddingLeft:'2.5%',
   
 }
 export const dropDownstyle2={
-  width:'60%',
-  marginRight:'20px',
   background:'#353B3B',
-  height:'50%',
-  paddingLeft:'5px'
+  paddingLeft:'12px',
+  paddingRight:'4px',
+  color:'white',
+  marginLeft:'-11%',
+  marginBottom:'-10%',
+  marginTop:'5%',
   
-  
+
+}
+export const dropDownTextstyle={
+    alignText:'center',
+    marginTop:'-15px',
+ }
+ export const droppedstyle={
+     
+ }
+export const openDropstyle={
+    height:'100%',
+    border:'solid'
+}
+export const closeDropstyle={
+    margin:'auto',
+    
 }
 export const togglestyleSwap={
     display:'flex',
@@ -177,18 +213,7 @@ export const toggleTextstyle={
     //backgroundColor:'#82ca9d',
     padding:'10%'
 }
-export const dropDownTextstyle={
-    background:'#353B3B',
-    
 
- }
-export const openDropstyle={
-    height:'100%',
-    border:'solid'
-}
-export const closeDropstyle={
-    width:'20%'
-}
 export const connectbuttonstyle ={
  backgroundColor:'#01FFA5',
  color:'black',
@@ -197,7 +222,6 @@ export const connectbuttonstyle ={
  width:'80%',
  cursor:'pointer',
  display:'inline',
- marginTop:'-5%',
  borderRadius:'5px'
 }
 export const buttonstyle ={
@@ -232,34 +256,44 @@ export const InputBoxstyle={
     background:'#353B3B',
     display:'flex',
     flexDirection:'row',
+    alignItems:'center',
     margin:'auto',
-    height:'50%',
-    paddingLeft:'2.5%'
+    height:'50px',
+    paddingLeft:'2.5%',
 }
 
 
 export const Inputstyle={
     background:'#353B3B',
+   
+    verticalAlign:'top',
     color:'white',
-    width:'100%',
-    position:'relative',
-    lineHeight:'200%',
+    width:'55%',
+    height:'45px',
+    marginLeft:'auto',
+    lineHeight:'500%',
     border:'none',
     
 }
 export const tokenLogostyle={
-    height:'100%',
+    height:'25px',
+    marginTop:'auto',
     display:'flex',
     flexDirection:'row',
     background:'#353B3B',
+    padding:'5px',
 }
 export const popoverstyle={
    padding:'5%'
 }
 export const arrowstyle={
-    height:15,
-    marginLeft:'30%',
-    marginTop:'20%'
+    height:'10px',
+    width:'10px',
+    marginLeft:'75px',
+    display:'flex',
+}
+export const arrowHolder={
+    marginTop:'-25%',
 }
 
 export const dexCardstyle={
@@ -267,14 +301,14 @@ export const dexCardstyle={
     flexDirection:'column',
     alignContent:'middle ',
     overflow:'wrap',
-    padding:25,   
-    width:275,
-    height:325,
-
+    padding:'25px',   
+    width:'250px',
+    height:'315px',
+    marginTop:'20px',
     // width:'30vw',
    // height:'37.5vw',
     marginLeft:'auto',
-    marginRight:'10vw',
+    marginRight:'auto',
     borderRadius:'6px',
     boxShadow:'0px 4px 6px 4px rgba(0,0,0,0.05)',
     color:'white',
@@ -282,11 +316,83 @@ export const dexCardstyle={
 
 }
 export const chartstyle ={
-   
-    width:'50%',
+    display:'inline',
+    zIndex:'1',
+    width:'100%',
 }
+export const MobileChartHolder={
+    display:'flex',
+    flexDirection:'column',
+    marginTop:'7.5px',
+    paddingRight:'45px'
+}
+export const chartHolder={
+    display:'flex',
+    flexDirection:'column',
+    marginLeft:'auto',
+    marginTop:'7.5px',
+    marginRight:'auto',
+}
+export const chartbackground={
+    background: 'repeating-linear-gradient(to right,white 0 11.11%,transparent 11.11% 22.22%)',
+    opacity:'.05',
+    zIndex:'-3',
+    height:'360px',
+    width:'480px',
+    marginLeft:'auto',
+    marginRight:'5px',
+    marginTop:'-395px',
+}
+export const chartbackgroundTablet={
+    background: 'repeating-linear-gradient(to right,white 0 20%,transparent 20% 40%)',
+    opacity:'.05',
+    zIndex:'-3',
+    height:'360px',
+    width:'280px',
+    marginLeft:'auto',
+    marginRight:'5px',
+    marginTop:'-395px',
+}
+export const chartbackgroundColumns={
 
-//- Work Around CSS delete later
+}
+export const chartTextstyle={
+    marginLeft:'12%',
+    display:'flex',
+    flexDirection:'column',
+    color:'white',
+    alignItems:'center',
+}
+export const legendIconDCSstyle={
+  background:'#1FE5C1',
+  height:'3px',
+  width:'6px',
+  display:'flex',
+  marginTop:'auto',
+  marginBottom:'auto',
+  marginRight:'5px'
+}
+export const legendIconstyle={
+    background:'#01FFA5',
+    height:'3px',
+    width:'9px',
+    display:'flex',
+    marginTop:'auto',
+    marginBottom:'auto',
+    marginRight:'5px'
+  }
+export const tokenstyle={
+color:'#1FE5C1',
+display:'flex',
+flexDirection:'row',
+}
+export const legendstyle={
+color:'#01FFA5',
+fontSize:'15px',
+display:'flex',
+flexDirection:'row',
+
+}
 
 export const stake ={
     display:'flex',

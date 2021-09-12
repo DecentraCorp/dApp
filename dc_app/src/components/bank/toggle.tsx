@@ -5,6 +5,10 @@ import switchlogo from '../../assets/switchLogo.svg'
 import { UseDbank } from '../../lib/hooks/useDbank'
 import { Maybe } from '../../lib/utils/types'
 import { ethers } from 'ethers'
+import { useDContracts } from 'lib/contracts/contracts'
+import { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import { ERC20 } from 'types/ERC20'
 
 
 
@@ -14,9 +18,18 @@ const ToggleSwitch = () => {
   // state
   const [toggle, setToggle] = useState(false)
   const [AmountToSell, setAmountToSell] = React.useState("")
+  const [balanceD, setBalanceD] = React.useState<number | undefined | any>()
+  const [balanceS, setBalanceS] = React.useState<number | undefined | any>()
+
+  const context = useWeb3React<Web3Provider>();
+	const { account, active } = useWeb3React();
 
   // contracts
   const dBank = UseDbank();
+  const contracts = useDContracts()!;
+  const Dstock: ERC20 = contracts.DStock;
+  const Ddollar: ERC20 = contracts.DDollar;
+
 
   const handleChange = (e: any) => {
     setAmountToSell(e.target.value)
@@ -37,17 +50,60 @@ const ToggleSwitch = () => {
   const handleSell = async () => {
      
     const tx = await dBank._sellStock({
-      _amount: ethers.utils.parseUnits(AmountToSell, 'ether')
+      _amount: ethers.utils.parseUnits(AmountToSell)
     })
 
     return tx
   }
 
+  const handleDebounce =  () => {
+
+    const d =  dBank._calculatePurchase({
+      _dollarAmount: ethers.utils.parseUnits(AmountToSell, 'ether')
+    })
+    return console.log(d, 'line 51')
+  }
+
+
+  // get token balance Dstock && Ddollar
+
+  //- Dstock
+  React.useEffect(() => {
+		if (!account) {
+			return;
+		}
+		const fetchTokenBalance = async () => {
+			const balance = await Dstock?.balanceOf(account);
+			setBalanceS(ethers.utils.formatEther(balance));
+		};
+		fetchTokenBalance();
+	}, [Dstock, account]);
+
+
+//- Ddollar
+  React.useEffect(() => {
+		if (!account) {
+			return;
+		}
+		const fetchTokenBalance = async () => {
+			const balance = await Ddollar?.balanceOf(account);
+			setBalanceD(ethers.utils.formatEther(balance));
+		};
+		fetchTokenBalance();
+	}, [Ddollar, account]);
+
+
+  
 
   return(
     <>
+    <div>
+    
+    </div>
      {!toggle && (
           <>
+          <div>Your Balance: {Number(balanceS).toLocaleString()} DStock</div>
+          <div>Your Balance: {Number(balanceD).toLocaleString()} DDollar</div>
         <div style={togglestyleSwap}onClick={() => setToggle(!toggle)}>
         <div style ={toggleHelperstyleActive as React.CSSProperties}>
            Swap
@@ -82,7 +138,7 @@ const ToggleSwitch = () => {
 <div><p style={tinytextstyle}>Swap To:</p></div>
 <div style={InputBoxstyle as React.CSSProperties}>
 <DropDownFrom/>
-      <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
+      <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleDebounce} >
       
       </input>
 
@@ -100,6 +156,8 @@ const ToggleSwitch = () => {
       )}
       {toggle && (
           <>
+          <div>Your Balance: {Number(balanceS).toLocaleString()} DStock</div>
+          <div>Your Balance: {Number(balanceD).toLocaleString()} DDollar</div>
  <div style={togglestyleLiq}onClick={() => setToggle(!toggle)}>
  <div style ={toggleHelperstyleInactive as React.CSSProperties}>
            Swap

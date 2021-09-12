@@ -22,7 +22,7 @@ export default function DexInput() {
 
         <label>
           <div style={InputBoxstyle as React.CSSProperties}>
-          <DropDownTo/>
+          <DropDownFrom/>
             <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
             
             </input>
@@ -34,7 +34,7 @@ export default function DexInput() {
       </form>
       <div><p style={tinytextstyle}>Swap To:</p></div>
       <div style={InputBoxstyle as React.CSSProperties}>
-      <DropDownFrom/>
+      <DropDownTo/>
             <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
             
             </input>

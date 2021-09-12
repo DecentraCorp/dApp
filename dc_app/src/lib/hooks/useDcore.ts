@@ -10,7 +10,7 @@ export function UseDcore () {
     const contracts = useDContracts();
 
     //- Proposal Core Function Calls
-
+	
     const _newProposal = async (
 		params: NewProposal,
 	) => {
