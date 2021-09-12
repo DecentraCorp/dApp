@@ -9,6 +9,7 @@ import { UseDscore } from 'lib/hooks/useDscore';
 import { ethers } from 'ethers';
 
 import { Table, Tag, Space } from 'antd';
+import SimpleOptionDropdown from 'components/Dropdowns/SimpleOptionDropdown/SimpleOptionDropdown';
 
 export default function Dao() {
 
@@ -43,8 +44,9 @@ export default function Dao() {
       })
   }
 
-  const handleStake = () => {
-    dScore._stakeMember({ _stakeAmount: ethers.BigNumber.from(stakeAmount)})
+  const handleStake = async () => {
+   const tx = await dScore._stakeMember({ _stakeAmount: ethers.utils.parseUnits(stakeAmount, 'ether')})
+   return tx
   }
 
   const dataSource = [
@@ -77,6 +79,13 @@ export default function Dao() {
         <div style={BOX as React.CSSProperties}>
           
             <div style={createProposal as React.CSSProperties}>
+            <SimpleOptionDropdown
+            customHeaderText={'Select a proposal type'}
+		  	        style={{ width: 100 }}
+		  	        options={['mint', 'widthdraw funds', 'addNewCollateralType']}
+		  	        onSelect={(option: string) => setStakeAmount(option)}
+			          label={'Type of Proposal'}
+		        />
                 <div style={createProposalBox as React.CSSProperties} >
                     <input   />
                     <input   />
@@ -91,16 +100,16 @@ export default function Dao() {
      
        
 
-            <>
-            <div  style={stake as React.CSSProperties}>
+           
+            {/* <div  style={stake as React.CSSProperties}>
                 <div style={stakeBox as React.CSSProperties}>
             <input   />
             <button onClick={handleStake}>
 				Stake member
 			</button>
             </div>
-            </div>
-            </>
+            </div> */}
+          
         </div>
      
         </>

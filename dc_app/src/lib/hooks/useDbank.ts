@@ -128,7 +128,7 @@ export function UseDbank () {
 
 
     const _calculateSale = (_stockAmount: any) => {
-        if(Dbank?.isJust()){
+        
             Dbank?.value.DecentraBank.calculateSale(
                 _stockAmount
             ).then(async (txr: any) => {
@@ -138,7 +138,7 @@ export function UseDbank () {
                     let _er = err
                     console.log(_er, 'Failed to withdraw')
                 })
-        }
+        
 
     }  
     

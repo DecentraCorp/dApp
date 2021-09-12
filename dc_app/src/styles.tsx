@@ -419,6 +419,7 @@ export const stake ={
 
 export const stakeBox={
     marginTop: '5vw',
+    marginLeft:'40vw',
 }
 
 export const createProposal ={
@@ -433,7 +434,7 @@ export const createProposal ={
     // width:'30vw',
    // height:'37.5vw',
    marginTop: '10vw',
-    marginLeft:'15vw',
+    marginLeft:'38vw',
     marginRight:'40vw',
     borderRadius:'6px',
     boxShadow:'0px 4px 6px 4px rgba(0,0,0,0.05)',
@@ -473,4 +474,12 @@ export const BOX= {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
     gap: '10px 2em'
+}
+
+export const dropdown= {
+
+}
+
+export const simpleDropDown= {
+
 }

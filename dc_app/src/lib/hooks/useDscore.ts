@@ -10,7 +10,6 @@ export function UseDscore () {
 		params: StakeMember,
 	) => {
 		console.log( params._stakeAmount, 'line 12 useDscoreHook')
-
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await contracts!.Dscore.stakeMembership(

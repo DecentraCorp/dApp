@@ -20,6 +20,7 @@ const ToggleSwitch = () => {
   const [AmountToSell, setAmountToSell] = React.useState("")
   const [balanceD, setBalanceD] = React.useState<number | undefined | any>()
   const [balanceS, setBalanceS] = React.useState<number | undefined | any>()
+  const [calculatedPrice, setcalculatedPrice] = React.useState<any>()
 
   const context = useWeb3React<Web3Provider>();
 	const { account, active } = useWeb3React();
@@ -56,13 +57,18 @@ const ToggleSwitch = () => {
     return tx
   }
 
-  const handleDebounce =  () => {
+  // Calculating input to Dstock
+  // React.useEffect(() => {
 
-    const d =  dBank._calculatePurchase({
-      _dollarAmount: ethers.utils.parseUnits(AmountToSell, 'ether')
-    })
-    return console.log(d, 'line 51')
-  }
+  //   const handleDebounce = () => {
+
+  //    const dstock = dBank._calculateSale({_stockAmount: AmountToSell})
+  //    setcalculatedPrice(dstock)
+  
+  //   }
+  //   handleDebounce();
+    
+  // },[dBank])
 
 
   // get token balance Dstock && Ddollar
@@ -138,7 +144,7 @@ const ToggleSwitch = () => {
 <div><p style={tinytextstyle}>Swap To:</p></div>
 <div style={InputBoxstyle as React.CSSProperties}>
 <DropDownFrom/>
-      <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleDebounce} >
+      <input style={Inputstyle as React.CSSProperties} value={calculatedPrice} >
       
       </input>
 
