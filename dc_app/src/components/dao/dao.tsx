@@ -8,6 +8,8 @@ import { UseDcore } from '../../lib/hooks/useDcore';
 import { UseDscore } from 'lib/hooks/useDscore';
 import { ethers } from 'ethers';
 
+import { MintDD } from 'lib/proposalTypes/proposalMintDD';
+
 import { Table, Tag, Space } from 'antd';
 import SimpleOptionDropdown from 'components/Dropdowns/SimpleOptionDropdown/SimpleOptionDropdown';
 
@@ -39,8 +41,8 @@ export default function Dao() {
 
   const handleCreate = () => {
       dCore._newProposal({
-        _proposalHash: '',
-        _callData: ''
+        _proposalHash: '', 
+        _callData:  MintDD
       })
   }
 

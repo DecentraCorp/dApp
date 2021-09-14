@@ -1,13 +1,26 @@
 import { Interface } from "@ethersproject/abi";
-import { ethers } from "ethers";
 
 
-export function AddCollateral(){
-    const abi = [{name: "addNewCollateralType",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"}]
-    const iface = new ethers.utils.Interface(abi)
-    let callData = iface.encodeFunctionData("addNewCollateralType")
-    return callData 
+export async function AddCollateral(){
+
+    // const Web3 = require("web3");
+    // const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8000"));
+
+    // let encodedProposalDataMint = await web3.eth.abi.encodeFunctionCall(
+    //     {
+    //       name: "proxyMintDD",
+    //       type: "function",
+    //       inputs: [
+    //         {
+    //           type: "address",
+    //           name: "_to",
+    //         },
+    //         {
+    //           type: "uint256",
+    //           name: "_amount",
+    //         },
+    //       ],
+    //     },
+    //     [account, val]
+    //   );
 }
