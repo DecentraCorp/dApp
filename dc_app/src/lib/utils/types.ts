@@ -30,7 +30,8 @@ export interface CalculateSale {
 //- Decentra Core
 export interface NewProposal {
 // _target: any
-_proposalHash: any
+_title: any
+_description: any
 _callData: any
 }
 

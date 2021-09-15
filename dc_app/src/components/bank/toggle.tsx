@@ -37,24 +37,29 @@ const ToggleSwitch = () => {
   }
 
   const handleSwap = async () => {
-
-   const tx = await dBank._purchaseStock({
+    if(!active){
+      alert('please connect your wallet')
+    }else{
+     let tx = await dBank._purchaseStock({
       _amount: ethers.utils.parseUnits(AmountToSell, 'ether'),
       _tokenType: '0x0000000000000000000000000000000000000000'
 			
 		});
 
     return tx
-
+  }
   }
 
   const handleSell = async () => {
-     
+    if(!active){
+      alert('please connect your wallet')
+    }else{
     const tx = await dBank._sellStock({
       _amount: ethers.utils.parseUnits(AmountToSell)
     })
 
     return tx
+  }
   }
 
   // Calculating input to Dstock
