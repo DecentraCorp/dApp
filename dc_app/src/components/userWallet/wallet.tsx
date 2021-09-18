@@ -25,6 +25,7 @@ import {
 } from '../../lib/wallet/connectors';
 import { Spinner } from './spinner';
 import { AbstractConnector } from '@web3-react/abstract-connector';
+import authenticate from '../../lib/hooks/useAuthThreeId';
 
 import Modal from 'antd/lib/modal/Modal';
 // import './wallet.scss';
