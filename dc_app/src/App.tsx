@@ -22,6 +22,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Topbar from './components/homepage/topbar';
 import Wallet from './components/userWallet/wallet';
+import Membership from './pages/membership/Membership';
 
 // Web3 Wallet
 function getLibrary(provider: any): Web3Provider {
@@ -59,10 +60,9 @@ function App() {
             
           </Route>
          <Route path="/dao" component={Dao}>
-             
            
           </Route>
-           
+          <Route path='/membership' component={Membership} />
            </Switch>
             </div>
       

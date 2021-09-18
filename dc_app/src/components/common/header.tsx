@@ -16,8 +16,8 @@ import React from 'react'
               <NavLink style={headerTextstyle}exact activeClassName="active"to="/bank">
                   DecentraStock &nbsp;
               </NavLink>
-              <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
-                  DecentraDollar
+              <NavLink style={routerTextstyle}exact activeClassName="active"to="/membership">
+                  Membership
               </NavLink>
               <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
                  DecentraCorp DAO
