@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import IdxProvider from 'lib/context/idxContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IdxProvider>
+      <App />
+    </IdxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

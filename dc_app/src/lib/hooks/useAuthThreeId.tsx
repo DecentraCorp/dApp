@@ -5,8 +5,8 @@ import Ceramic from '@ceramicnetwork/http-client';
 import { IDX } from '@ceramicstudio/idx';
 import { DID } from 'dids';
 import Web3Modal from 'web3modal';
-// import { useUserContext } from '../../context/userContext'; TODO: Do we want to use a context object for holding info?
 import { definitions } from '../../config.json';
+import { useIdxContext } from 'lib/context/idxContext';
 
 const CERAMIC_URL = process.env.CERAMIC_API || 'http://localhost:7007';
 declare let window: any;
@@ -21,7 +21,9 @@ const threeIdConnect = new ThreeIdConnect();
 //TODO: Check to see if user is pre-authorized. If so, do not prompt them
 const useAuthThreeId = () => {
   // const [authProvider, setAuthProvider] = useState<EthereumAuthProvider>();
-//   const { setCeramic, setIdx } = useUserContext();
+  const { setCeramic, setIdx } = useIdxContext();
+const [userDid, setUserDid] = useState<string>();
+const [userIdx, setUserIdx] = useState<IDX>();
 
   const web3Modal = new Web3Modal({
     network: 'rinkeby', // Make this extensible
@@ -44,15 +46,17 @@ const useAuthThreeId = () => {
 
     // Sets the localStorage values
     const idx = new IDX({ ceramic, aliases: definitions });
-    // setCeramic(ceramic);
-    // setIdx(idx);
-    console.log(idx);
-    console.log(did);
+    console.log('User Did')
+    console.log(did.id);
+    setCeramic(ceramic);
+    setIdx(idx);
+    setUserDid(did.id);
+    setUserIdx(idx);
     window.idx = idx;
     window.ceramic = ceramic;
   };
 
-  return { authenticate };
+  return { authenticate, userDid, userIdx };
 };
 
 export default useAuthThreeId;
