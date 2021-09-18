@@ -25,9 +25,6 @@ import {
 } from '../../lib/wallet/connectors';
 import { Spinner } from './spinner';
 import { AbstractConnector } from '@web3-react/abstract-connector';
-import authenticate from '../../lib/hooks/useAuthThreeId';
-
-import Modal from 'antd/lib/modal/Modal';
 // import './wallet.scss';
 
 // import { METAMASK } from 'web3modal/dist/providers/injected';
@@ -213,28 +210,26 @@ export default function Wallet() {
 	const context = useWeb3React<Web3Provider>();
 	const {
 		connector,
-		library,
 		chainId,
-		account,
 		activate,
 		deactivate,
 		active,
 		error,
 	} = context;
 
-	const [isModalVisible, setIsModalVisible] = React.useState(true);
+	// const [isModalVisible, setIsModalVisible] = React.useState(true);
 
-	const showModal = () => {
-		setIsModalVisible(true);
-	};
+	// const showModal = () => {
+	// 	setIsModalVisible(true);
+	// };
 
-	const handleOk = () => {
-		setIsModalVisible(false);
-	};
+	// const handleOk = () => {
+	// 	setIsModalVisible(false);
+	// };
 
-	const handleCancel = () => {
-		setIsModalVisible(false);
-	};
+	// const handleCancel = () => {
+	// 	setIsModalVisible(false);
+	// };
 
 	// handle logic to recognize the connector currently being activated
 	const [activatingConnector, setActivatingConnector] = React.useState<any>();
@@ -390,6 +385,7 @@ export default function Wallet() {
 						className="link"
 						href="https://ethereum.org/en/wallets/"
 						target="_blank"
+						rel='noreferrer'
 					>
 						Learn more about wallets
 					</a>

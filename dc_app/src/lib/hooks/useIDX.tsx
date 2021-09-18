@@ -17,7 +17,7 @@ export type InvoiceList = { invoices: Array<InvoiceItem> };
  * TODO: Evaluate need to have state and dispatch functionality
  */
 export function useIDX() {
-  const { idx, ceramic, did } = useIdxContext();
+  const { idx, ceramic } = useIdxContext();
   // const [id, setId] = useState(idx.id);
 
   /**
@@ -82,6 +82,7 @@ export function useIDX() {
       .catch((err: any) => {
         console.log(`Error in saveInvoice: `, err);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

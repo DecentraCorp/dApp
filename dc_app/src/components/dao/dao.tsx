@@ -1,20 +1,20 @@
 import { useIdxContext } from 'lib/context/idxContext';
 import useAuthThreeId from 'lib/hooks/useAuthThreeId'
 import { useIDX } from 'lib/hooks/useIDX';
-import React, { useEffect } from 'react'
 import { daostyle } from '../../styles'
 
 export default function Dao() {
     
     const {authenticate} = useAuthThreeId();
     const {getProfile, auth, setProfile} = useIDX();
-    const {idx, ceramic, did} = useIdxContext();
+    const {idx, did} = useIdxContext();
 
     const authUser = async () => {
         await authenticate()
     }
 
     const getDidProfile = async () => {
+        // eslint-disable-next-line eqeqeq
         if (idx != '') {
             console.log('Claro')
             console.log(did)
@@ -41,8 +41,4 @@ export default function Dao() {
             <button onClick={setPro}>Set Profile</button>
         </div>
     )
-}
-
-function auth() {
-    throw new Error('Function not implemented.');
 }
