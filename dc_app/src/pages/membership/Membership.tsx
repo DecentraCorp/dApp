@@ -1,7 +1,11 @@
 import { useIdxContext } from 'lib/context/idxContext';
 import useAuthThreeId from 'lib/hooks/useAuthThreeId'
 import { useIDX } from 'lib/hooks/useIDX';
-import { daostyle } from '../../styles'
+import CreateProfileForm from '../../components/CreateProfileForm/CreateProfileForm';
+import {
+    ButtonsContainer,
+    Wrapper
+} from './Style';
 
 export default function Dao() {
     
@@ -28,17 +32,24 @@ export default function Dao() {
     }
 
     const setPro = async () => {
-        setProfile();
+        setProfile({name: 'Ryan Dev'});
     }
 
 
     return (
-        <div style={daostyle}>
+        <Wrapper>
+            <ButtonsContainer>
             <button onClick={authUser}>Authenticate DID</button>
             <br />
             <button onClick={getDidProfile}>Get Profile Info</button>
             <br />
             <button onClick={setPro}>Set Profile</button>
-        </div>
+            </ButtonsContainer>
+            {/* Components to buildout;
+            create profile form (to be inside a module)
+            profile display component
+            edit profile form (inside modal) */}
+            <CreateProfileForm />
+        </Wrapper>
     )
 }

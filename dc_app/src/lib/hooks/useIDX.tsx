@@ -40,8 +40,8 @@ export function useIDX() {
     return values;
   };
 
-  const setProfile = async () => {
-    await idx.set('basicProfile', {name: 'Ryan Turner (Dev)',}) // Example profile set call
+  const setProfile = async (data: any) => {
+    await idx.set('basicProfile', data) // Example profile set call
   }
 
   /**
