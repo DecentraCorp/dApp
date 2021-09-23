@@ -4,7 +4,7 @@ import {
     Route,
     NavLink
   } from 'react-router-dom'
-  import Topbar from '../homepage/topbar'
+  import Topbar from '../../pages/homepage/topbar'
 import { headerTextstyle, routerTextstyle, routerBoxStyle, navbarstyle } from '../../styles'
 import React from 'react'
   export function Header(){
@@ -16,8 +16,8 @@ import React from 'react'
               <NavLink style={headerTextstyle}exact activeClassName="active"to="/bank">
                   DecentraStock &nbsp;
               </NavLink>
-              <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
-                  DecentraDollar
+              <NavLink style={routerTextstyle}exact activeClassName="active"to="/membership">
+                  Membership
               </NavLink>
               <NavLink style={routerTextstyle}exact activeClassName="active"to="/dao">
                  DecentraCorp DAO

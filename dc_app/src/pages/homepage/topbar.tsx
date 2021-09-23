@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import Modal from 'antd/lib/modal/Modal';
-import Wallet from '../userWallet/wallet';
+import Wallet from '../../components/userWallet/wallet';
 
 const Topbar: FC = () => {
 	const context = useWeb3React<Web3Provider>();
