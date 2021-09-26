@@ -6,3 +6,11 @@ export const Wrapper = styled.div`
     height: 100vh;
     width: 100vw;
 `;
+
+export const ButtonsContainer = styled.div`
+    width: 25%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`;
