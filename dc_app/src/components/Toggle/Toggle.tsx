@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxstyle,togglestyleLiq, togglestyleSwap, buttonstyle, tinytextstyle, toggleHelperstyleActive, toggleHelperstyleInactive} from '../../styles'
-import {DropDownTo,DropDownFrom} from './dex/dropdown'
+import {DropDownTo,DropDownFrom} from '../dex/dropdown'
 import switchlogo from '../../assets/switchLogo.svg'
 
 //- Contract imports 
@@ -34,11 +34,9 @@ const ToggleSwitch = () => {
   }
 
   const handleSell = async () => {
-     
     const tx = await dBank._sellStock({
       _amount: ethers.utils.parseUnits(AmountToSell, 'ether')
     })
-
     return tx
   }
 
@@ -47,7 +45,7 @@ const ToggleSwitch = () => {
     <>
      {!toggle && (
           <>
-        <div style={togglestyleSwap}onClick={() => setToggle(!toggle)}>
+        <div style={togglestyleSwap} onClick={() => setToggle(!toggle)}>
         <div style ={toggleHelperstyleActive as React.CSSProperties}>
            Swap
            </div>    <div style={toggleHelperstyleInactive as React.CSSProperties}>

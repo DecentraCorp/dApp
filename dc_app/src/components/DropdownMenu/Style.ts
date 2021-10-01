@@ -1,0 +1,20 @@
+import React from 'react';
+import styled from 'styled-components';
+
+export const Container = styled.div`
+    position: relative;
+`;
+
+// export const Menu = styled.div`
+//     background: gray;
+//     border-radius: 8px;
+//     position: absolute;
+//     top: 60px;
+//     right: 0;
+//     width: 300px;
+//     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+//     opacity: 0;
+//     visibility: ${(Props) => Props.visibility || 'hidden'};
+//     transform: translateY(-20px);
+//     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+// `;

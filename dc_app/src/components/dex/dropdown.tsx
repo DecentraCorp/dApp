@@ -1,10 +1,9 @@
 import React from 'react'
-import { dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, popoverstyle, maindropDownstyle, dropDownstyle2, dropDownTextstyle, droppedstyle, closeDropstyle, arrowHolder } from 'styles'
-import { Popover, ArrowContainer } from 'react-tiny-popover'
+import {  tokenLogostyle, arrowstyle, dropDownstyle,  maindropDownstyle, dropDownstyle2, dropDownTextstyle,  closeDropstyle, arrowHolder } from 'styles'
+import { Popover } from 'react-tiny-popover'
 import { useState } from 'react'
 import tokens from './tokens'
 import downArrow from 'assets/downArrow.svg'
-import switchlogo from 'assets/switchLogo.svg'
 
 
 function DropDownFrom() {
