@@ -1,8 +1,8 @@
 import React from 'react'
-import { CircleButtonstyle, switchLogostyle ,dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, tinytextstyle, converttextstyle } from '../../../styles'
+import { CircleButtonstyle, switchLogostyle ,dexCardstyle, Inputstyle, InputBoxstyle, tokenLogostyle, arrowstyle, dropDownstyle, tinytextstyle, converttextstyle } from '../../styles';
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { useState } from 'react'
-import tokens from './tokens'
+import tokens from './tokens';
 import downArrow from 'assets/downArrow.svg'
 import switchlogo from 'assets/switchLogo.svg'
 
