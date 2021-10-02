@@ -31,8 +31,12 @@ import { useGetWindowWidth } from 'lib/hooks/useGetWidth';
 =======
 import Wallet from './components/userWallet/wallet';
 import Membership from './pages/membership/Membership';
+<<<<<<< HEAD
 import { SwapForm } from './components/Swap/Swap'
 >>>>>>> Re-organize file layout, rebuild bank page, chart and switch component. Started work on rebuilding dropdowns. Simplified styling
+=======
+import { DropdownMenu } from '../src/components/DropdownMenu/DropdownMenu';
+>>>>>>> Finish re-building the bank page
 
 // Web3 Wallet
 function getLibrary(provider: any): Web3Provider {
@@ -66,6 +70,8 @@ function App() {
         <Switch>
           {/* <Route path="/welcome" component={FrontPage} />
           <Route path='/builder' component={SwapForm} /> */}
+          <Route path="/welcome" component={FrontPage} />
+          <Route path='/builder' component={DropdownMenu} />
           <Route exact path="/" component={Homepage}>
           </Route>
           <Route path="/bank" component={Bank} />

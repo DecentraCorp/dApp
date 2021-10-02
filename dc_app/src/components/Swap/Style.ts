@@ -20,10 +20,10 @@ export const SwitchContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 75%;
-    background: green;
     height: 70px;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
 `;
 
 export const DropdownContainer = styled.div`
@@ -42,6 +42,23 @@ export const DropdownBox = styled.div`
     margin: auto;
     height: 50px;
     padding-left: 2.5%;
+    box-shadow: 10px 14px 28px -18px #01ffa5;
+`;
+
+export const Input = styled.input`
+    width: 48%;
+    height: 80%;
+    background-color: #353B3B;
+    margin-right: 0;
+    box-shadow: none;
+    outline: none;
+    color: white;
+    font-size: 19px;
+    border: none;
+    &:focus {
+        box-shadow: inset 10px 14px 28px -25px #01ffa5;
+        border-radius: 10px;
+    }
 `;
 
 export const P = styled.p`
@@ -69,6 +86,8 @@ export const CenterImage = styled.img`
     width: 48px;
     border-radius: 50%;
     margin: 2em auto 0 auto;
+    box-shadow: 45px 35px 50px -26px #293231;
+    opacity: 0.7;
 `;
 
 export const SwapBtn = styled.button`
