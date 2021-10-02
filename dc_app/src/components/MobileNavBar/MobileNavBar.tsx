@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/DBlogo.svg';
+import {Wallet} from '../Wallet/Wallet';
 import {
     StyledBurger,
     Div,
@@ -43,7 +44,7 @@ export function MobileNavBar({open, setOpen}: MobileMenuProps) {
                         DecentraCorp DAO
                     </MenuLink>
                 </NavLink>
-                <WalletBtn>Connect Wallet</WalletBtn>
+                <Wallet />
             </StyledMenu>
             <LogoWrapper src={Logo} alt='' />
         </Wrapper>

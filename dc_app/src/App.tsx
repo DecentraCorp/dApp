@@ -6,7 +6,6 @@ import { Route,Switch, HashRouter} from 'react-router-dom'
 import Bank from './pages/bank/bank'
 import Dao from './components/dao/dao';
 import Homepage from './pages/homepage/homepage';
-import Wallet from './components/userWallet/wallet';
 import Membership from './pages/membership/Membership';
 import {NavBar} from '../src/components/NavBar/NavBar';
 import {MobileNavBar} from '../src/components/MobileNavBar/MobileNavBar';
@@ -52,9 +51,6 @@ function App() {
       }
         <Switch>
           <Route exact path="/" component={Homepage}>
-            <Route path='/builder' component={MobileNavBar} />
-            {/* Put this in a modal */}
-            <Wallet />
           </Route>
           <Route path="/bank" component={Bank} />
           <Route path="/dao" component={Dao} />

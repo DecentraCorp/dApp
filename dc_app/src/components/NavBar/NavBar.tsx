@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {Wallet} from '../Wallet/Wallet';
 import Logo from '../../assets/DBlogo.svg';
 import { Nav, WalletBtn, Wrapper, LogoWrapper, Title } from './Style';
 
 
 
 export function NavBar() {
-
-    console.log('object')
 
     return (
         <Wrapper>
@@ -24,7 +23,7 @@ export function NavBar() {
             <NavLink to='/dao'>
                 <Nav>DecentraCorp DAO</Nav>
             </NavLink>
-            <WalletBtn>Connect Wallet</WalletBtn>
+            <Wallet />
         </Wrapper>
     )
 }
