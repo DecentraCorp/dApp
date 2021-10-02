@@ -17,7 +17,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Wallet from './components/userWallet/wallet';
 import Membership from './pages/membership/Membership';
-import { SwapForm } from './components/Swap/Swap'
+import { DropdownMenu } from '../src/components/DropdownMenu/DropdownMenu';
 
 // Web3 Wallet
 function getLibrary(provider: any): Web3Provider {
@@ -41,7 +41,7 @@ function App() {
       {/* <Header/> */}
         <Switch>
           <Route path="/welcome" component={FrontPage} />
-          <Route path='/builder' component={SwapForm} />
+          <Route path='/builder' component={DropdownMenu} />
           <Route exact path="/" component={Homepage}>
             {/* Put this in a modal */}
             <Wallet />
