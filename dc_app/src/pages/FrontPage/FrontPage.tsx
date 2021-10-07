@@ -1,9 +1,15 @@
 import React from 'react';
-import { ReactComponent as Logo} from '../../assets/DCLogo.svg';
-import {Wrapper, TopRow, Title, TextBox, Text, LogoWrap, RightBox, Gradient} from './Style';
+import {Wrapper, TopRow, Title, TextBox, Text, RightBox, LogoWrap, Gradient, FullWidthBox, LeftFullWidth, RightFullWidth, RightAlignedContainer, LeftAlignedContainer} from './Style';
+
+/**
+ * Chris, this is a super basic skeleton that should get you started. 
+ * I left notes throughout to try and help orient. The part on the top right I have no idea how were  * going to do that, but I'll research it and figure it out. A lot of the elements are going to need
+ * some padding or margin adjustments to make them line up right. Also, the grey box that is
+ * split into two is supposed to be the true whole width of the screen. I'll have to work with the 
+ * base style file to allow for that.
+ */
 
 const FrontPage = () => {
-    const imagePath = './gradient-green.png'
     return (
         <Wrapper>
             <TopRow>
@@ -14,12 +20,34 @@ const FrontPage = () => {
                 </Text>
                 </TextBox>
                 <RightBox>
-                    <img src='./gradient-green.png' alt='' style={{height: '100%'}}/>
-                    {/* <LogoWrap>
-                        <Logo style={{width: '100%', marginTop: 0, height: '70%'}} />
-                    </LogoWrap> */}
+                Area for green logo and curvy background
                 </RightBox>
             </TopRow>
+            <FullWidthBox full>
+                <LeftFullWidth>Left Box</LeftFullWidth>
+                <RightFullWidth>Right Box</RightFullWidth>
+            </FullWidthBox>
+            <RightAlignedContainer>
+                <TextBox style={{border: 'solid red 3px'}}>DecentraCore</TextBox>
+            </RightAlignedContainer>
+            <LeftAlignedContainer>
+                <TextBox style={{border: 'solid cyan 3px'}}>DecentraBank</TextBox>
+                {/* Image can go here */}
+            </LeftAlignedContainer>
+            <RightAlignedContainer>
+                <TextBox style={{border: 'solid red 3px'}}>DecentraStock</TextBox>
+                {/* Image can go here */}
+            </RightAlignedContainer>
+            <FullWidthBox style={{border: 'solid green 3px'}}>
+                {/* Text needs to be in container, likely with left padding or margin */}
+                D-Scores
+            </FullWidthBox>
+            <FullWidthBox>
+                {/* Progress bar goes here */}
+            </FullWidthBox>
+            <FullWidthBox>
+                Timeline blurb will go here (need to make the text bubble outshoot)
+            </FullWidthBox>
         </Wrapper>
     )
 }

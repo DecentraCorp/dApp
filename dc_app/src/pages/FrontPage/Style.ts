@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface StyleProps {
+    full?: boolean;
+}
+
 export const Wrapper = styled.div`
     width: 95%;
     display: flex;
@@ -53,4 +57,34 @@ export const Gradient = styled.div`
     width: 100%;
     height: 100%;
     background-image: url('./gradient-green.png')
+`;
+
+export const FullWidthBox = styled.div<StyleProps>`
+    width: ${(props) => props.full ? '100vw' : '100%'};
+    height: 200px;
+    background-color: ${(props) => props.full ? '#636d6c' : ''};
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+export const LeftFullWidth = styled.div`
+    width: 50%;
+`;
+
+export const RightFullWidth = styled.div``;
+
+export const RightAlignedContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+`;
+
+export const LeftAlignedContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
 `;
