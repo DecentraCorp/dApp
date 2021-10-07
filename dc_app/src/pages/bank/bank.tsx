@@ -1,24 +1,25 @@
 import React from 'react'
-import { bankstyle,chartHolder,dexCardstyle } from 'styles'
-import ResponsiveContainer from './chart/chart'
-import { ResChart } from './chart/responsiveChart'
-import Toggle from './toggle'
+import {SwapForm} from '../../components/Swap/Swap'
+import Chart from '../../components/Chart/Chart';
 import Topbar from '../homepage/topbar'
 import { ethers } from 'ethers'
 import { Provider } from '@ethersproject/providers'
+import {
+    Wrapper,
+    ChartBox,
+    ToggleBox,
+} from './Style';
 
 export default function Bank() {
     return (
-        <div style={bankstyle as React.CSSProperties}>
-            <div style={chartHolder as React.CSSProperties}>
-            <ResChart/> 
-            </div>
-            
-            <div style={dexCardstyle as React.CSSProperties}>
-            <Toggle/>
-        </div>
-      
-        </div>
+        <Wrapper>
+            <ChartBox>
+                <Chart/> 
+            </ChartBox>
+            <ToggleBox>
+                <SwapForm/>
+            </ToggleBox>
+        </Wrapper>
     )
 }
    

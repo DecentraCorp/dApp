@@ -230,7 +230,7 @@ export const buttonstyle ={
     height:'50px',
     cursor:'pointer',
     borderRadius:'5px',
-    width:'100%',
+    width:'80%',
     margin:'auto',
     fontWeight:'600'
    }
