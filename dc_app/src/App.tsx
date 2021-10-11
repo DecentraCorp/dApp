@@ -52,7 +52,7 @@ function App() {
       }
         <Switch>
           <Route path="/welcome" component={FrontPage} />
-          <Route exact path="/" component={Homepage}>
+          <Route exact path="/" component={FrontPage}>
           </Route>
           <Route path="/bank" component={Bank} />
           <Route path="/dao" component={Dao} />
