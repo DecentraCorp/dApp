@@ -2,6 +2,7 @@ import {useState} from 'react';
 import SwitchSelector from 'react-switch-selector';
 import { Wrapper, SwitchContainer } from './Style'
 import ViewDaoProposals from 'components/ViewDaoProposals/ViewDaoProposals';
+import CreateNewProposalView from 'components/CreateNewProposalView/CreateNewProposalView';
 
 const switchOptions = [
     {
@@ -37,7 +38,7 @@ export default function Dao() {
                 fontSize={18}
             />
             </SwitchContainer>
-            {selectedFunction === 'view' && <ViewDaoProposals />}
+            {selectedFunction === 'view' ? <ViewDaoProposals /> : selectedFunction === 'create' && <CreateNewProposalView /> }
         </Wrapper>
     )
 }
