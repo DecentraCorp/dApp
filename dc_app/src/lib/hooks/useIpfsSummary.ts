@@ -19,7 +19,7 @@ export function useIpfsSummary(){
 
    
 
-	  const ipfsSummary = async (title: any, description: any, proposalType: any, _callData: any) => {
+	  const ipfsSummary = async (title: any, description: any, proposalType: any, _callData: any, amount: any) => {
         console.log(_callData, 'line 23 ipfs')
 		console.log("submit");
 	
@@ -36,7 +36,7 @@ export function useIpfsSummary(){
 		const metadataPath = `${res[0].hash}`;
     	console.log(`proposalHash is at ${metadataPath}`);
 		// await ipfsClient.add(Buffer.from(metadataJson));
-		dCore._newProposal(metadataPath, _callData);
+		dCore._newProposal(metadataPath, _callData, amount);
 	  }
     
       return {ipfsSummary}

@@ -15,17 +15,17 @@ export function UseDcore () {
 
     //- Proposal Core Function Calls
 	const _newProposal = async (
-		_proposalHash: any, _callData: any
+		_proposalHash: any, _callData: any, amount: any
 	) => {
-		console.log( _proposalHash, 'line 19 useDbank Hook')
-		
+		console.log( _proposalHash, _callData,amount, 'line 19 useDbank Hook')
 
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
 			tx = await contracts!.DCore.newProposal(
                 '0xfb821d4BD0027E80282F6F16E7550F9Ee8D21645',
                 _proposalHash,
-                _callData,				
+                _callData,	
+				{value: ethers.BigNumber.from(amount)}			
 			);
 		} catch (e: any) {
 			console.error(e);
@@ -66,9 +66,9 @@ export function UseDcore () {
 
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
-			tx = await contracts!.DCore.setQuorum(
-               		params._proposalID,
-                    
+			tx = await contracts!.DCore.vote(
+               		params._proposalID,  
+					params._support
 			);
 		} catch (e: any) {
 			console.error(e);

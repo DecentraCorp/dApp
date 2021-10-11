@@ -46,6 +46,7 @@ export interface StakeMember{
 
 export interface Vote {
     _proposalID: any,
+    _support: boolean
 }
 
 

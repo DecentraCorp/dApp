@@ -15,6 +15,7 @@ import { useIpfsSummary } from 'lib/hooks/useIpfsSummary';
 
 import { Table, Tag, Space } from 'antd';
 import SimpleOptionDropdown from 'components/Dropdowns/SimpleOptionDropdown/SimpleOptionDropdown';
+import PropInput from './propTypes';
 
 
 
@@ -47,18 +48,45 @@ export default function Dao() {
   const [proxyMintAmount, setProxyMintAmount] = React.useState<string>('')
   const [ethAddress, setEthAddress] = React.useState<string>('')
   const [tokenAddress, setTokenAddress] = React.useState('')
+  const [_callData, setCallData] = React.useState<any>()
 
 
    ///////////////
  // Web3 Functions //
 	///////////////
-  const proxyMintDD = async () => {
-    // todo add notification here
-  if(!active){
-    alert('connect wallet before selecting proposal type')
+
+  const proxyMint = async () => {
+    let _calldata = ''
+    try{
+      let val = ethers.utils.parseUnits(proxyMintAmount, 'ethers')
+      _calldata = await web3.eth.abi.encodeFunctionCall(
+        {
+          name: "proxyMintDD",
+          type: "function",
+          inputs: [
+            {
+              type: "address",
+              name: "_to",
+            },
+            {
+              type: "uint256",
+              name: "_amount",
+            },
+          ],
+        },
+        [ethAddress, val]
+      );
+      return _calldata
+    } catch (err: any) {
+      console.log(err, 'line 80')
+
+    }
   }
-  let val = ethers.utils.parseUnits(proxyMintAmount, 'ethers')
-  let encodedProposalDataMintDD = await web3.eth.abi.encodeFunctionCall(
+
+  const proxyMintDD = async () => {
+  let val = ethers.utils.parseUnits('1')
+  let encodedProposalDataMintDD;
+  encodedProposalDataMintDD = await web3.eth.abi.encodeFunctionCall(
     {
       name: "proxyMintDD",
       type: "function",
@@ -77,6 +105,7 @@ export default function Dao() {
   );
   return encodedProposalDataMintDD
     }
+
 
   const proxyBurnDD = async () => {
     if(!active){
@@ -100,7 +129,7 @@ export default function Dao() {
     }, [ethAddress, proxyMintAmount]
     )
     }
-  
+
   const proxyMintDS = async () => {
     if(!active){
       alert('connect wallet before selecting proposal type')
@@ -166,6 +195,7 @@ export default function Dao() {
     if(!active){
       alert('connect wallet before selecting proposal type')
     }
+    let val = ethers.utils.parseUnits('1' ,'ethers')
     let encodedProposalDataWidthdraw = await web3.eth.abi.encodeFunctionCall({
       name: "fundWithdrawl",
       type: "function",
@@ -183,11 +213,9 @@ export default function Dao() {
           "type": "uint256"
         }
       ], 
-    },[ethAddress, ethAddress, proxyMintAmount]
-    )
+    },[ethAddress, tokenAddress, val]
+    )    
   }
-
-
 
 
 
@@ -196,8 +224,8 @@ export default function Dao() {
       alert('please connect your wallet')
     } else
    await _ipfs.ipfsSummary(
-       title,description,propType, _calldata
-      )
+       title,description,propType, await proxyMintDD(), proxyMintAmount
+   )
   }
 
   const handleStake = async () => {
@@ -205,27 +233,21 @@ export default function Dao() {
    return tx
   }
 
-  const dataSource = [
-    {
-      key: '1',
-  
-    },
-    {
-      key: '2',
-      
-    },
-  ];
-  
-  const columns = [
-    {
-      title: 'Proposals',
-      dataIndex: 'name',
-      key: 'name',
-    },
-  ];
+ 
 
   const handleChange = (e: any) => {
     setTitle(e.target.value)
+  }
+
+  const handleI = (e: any) => {
+    setEthAddress(e.target.value)
+  }
+  const handleA = (e: any) => {
+    setProxyMintAmount(e.target.value)
+  }
+
+  const handleT = (e: any) => {
+    setTokenAddress(e.target.value)
   }
 
   const handleDescriptionChange = (e: any) => {
@@ -242,19 +264,24 @@ export default function Dao() {
         <div style={BOX as React.CSSProperties}>
           
             <div style={createProposal as React.CSSProperties}>
-            <SimpleOptionDropdown
+            {/* <SimpleOptionDropdown
             customHeaderText={'Select a proposal type'}
 		  	        style={{ width: 100 }}
-		  	        options={['mint', 'widthdraw funds', 'addNewCollateralType']}
+		  	        options={[]}
 		  	        onSelect={(option: string) => setPropType(option)}
 			          label={'Type of Proposal'}
-		        />
+		        /> */}
                 <div style={createProposalBox as React.CSSProperties} >
                     <input placeholder='Proposal Title' onChange={handleChange}  />
                     <textarea placeholder='Proposal Description' onChange={handleDescriptionChange}  />
+                    <input placeholder='address' onChange={handleI} />
+                    <input placeholder='amount' onChange={handleA} />
                     <button onClick={handleCreate}>Create Proposal</button>
                 </div>
-                <Table dataSource={dataSource} columns={columns} />
+                <PropInput
+					      onSubmit={handleA}
+				      	style={{ marginTop: 8 }}
+				/>
             </div>
 
      
