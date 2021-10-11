@@ -8,7 +8,6 @@ import { Bytes } from "@ethersproject/bytes";
 
 // - Type Imports 
 import { Maybe, GetProposal, Vote, NewProposal } from '../utils/types';
-// import { PurchaseStock, SellStock, AddCollateral, FundWithdrawl, Maybe } from "../utils/types";
 
 
 export function UseDcore () {
@@ -76,6 +75,14 @@ export function UseDcore () {
         }
         return tx;
     }
+
+    /**
+     * proxyMintDD params
+     */
+
+    /**
+     * proxyBurnDD
+     */
 
 
 

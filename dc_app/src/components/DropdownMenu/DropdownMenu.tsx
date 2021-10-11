@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import { components } from 'react-select';
-import tokens from './tokens';
 import {
     Container,
     Image,
     Span,
 } from './Style'
-
-const options = [
-    {value: tokens[0].tkr, label: <Span><Image src={tokens[0].image} alt=''/> {tokens[0].name} </Span>},
-    {value: tokens[1].tkr, label: <Span><Image src={tokens[1].image} alt=''/> {tokens[1].name} </Span>},
-];
 
 const customStyles = {
     option: (provided: any, state: any) => ({
@@ -40,9 +34,11 @@ const customStyles = {
 // Will need to build data aggregator once calls are made
 interface DropDownProps {
     setCurrent: any;
+    options?: {value: string; label: JSX.Element}[];
+    wide?: boolean;
 }
 
-export const DropdownMenu = ({setCurrent}: DropDownProps) => {
+export const DropdownMenu = ({setCurrent, options, wide}: DropDownProps) => {
     const [selectedOption, setSelectedOption] = useState<any>();
 
     const handleChange = (e: any) => {
@@ -52,7 +48,7 @@ export const DropdownMenu = ({setCurrent}: DropDownProps) => {
     }
     console.log(selectedOption);
     return (
-        <Container>
+        <Container wide={wide ? wide : false}>
             <Select
                 value={selectedOption}
                 onChange={(e: any) => handleChange(e)}

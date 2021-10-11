@@ -104,3 +104,17 @@ export const SwapBtn = styled.button`
     margin-bottom: 3em;
     border: none;
 `;
+
+export const Span = styled.span`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #353b3b;
+    color: white;
+`;
+
+export const Image = styled.img`
+    height: 30px;
+    width: 30px;
+    margin-right: 1em;
+`;

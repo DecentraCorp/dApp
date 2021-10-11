@@ -29,7 +29,7 @@ export const SwitchContainer = styled.div`
 `;
 
 export const DropdownContainer = styled.div`
-    width: 60%;
+    width: 40%;
     display: flex;
     flex-direction: column;
 `;
@@ -41,6 +41,7 @@ export const DropdownBox = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: left;
     margin: auto;
     height: 50px;
     padding-left: 2.5%;
@@ -105,4 +106,13 @@ export const SwapBtn = styled.button`
     margin-top: 3em;
     margin-bottom: 3em;
     border: none;
+`;
+
+
+export const Span = styled.span`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #353b3b;
+    color: white;
 `;
