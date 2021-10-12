@@ -74,38 +74,15 @@ export const P = styled.p`
     padding-bottom: 0;
 `;
 
-export const AltP = styled.p`
-    font-family: Spartan;
-    font-weight: 600;
-    font-size: 0.938rem;
-    line-height: 0.93rem;
-    text-align: right;
-    margin: 0.5em 0 0 0;
-`;
-
-export const CenterImage = styled.img`
-    background-color: #01ffa5;
-    height: 48px;
-    width: 48px;
-    border-radius: 50%;
-    margin: 2em auto 0 auto;
-    box-shadow: 45px 35px 50px -26px #293231;
-    opacity: 0.7;
-`;
-
-export const SwapBtn = styled.button`
-    background-color: #01ffa5;
-    color: #2B3030;
-    font-family: Spartan;
-    font-weight: 600;
-    font-size: 1.125rem;
-    line-height: 20px;
-    width: 100%;
-    height: 61px;
-    border-radius: 6px;
-    margin-top: 3em;
+export const FormWrapper = styled.div`
+    width: 70%;
+    margin-top: 2em;
     margin-bottom: 3em;
-    border: none;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 

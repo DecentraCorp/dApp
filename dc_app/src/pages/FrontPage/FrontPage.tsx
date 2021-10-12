@@ -123,7 +123,7 @@ const FrontPage = () => {
             customers and other members how trustworthy a member is.
           </Text>
           <Text>
-            The D-score is made up of the following factors:   • Jobs: the
+            The D-score is made up of the following factors: • Jobs: the
             number of D-jobs completed by the member • Reputation: the overall
             average of the rating of each job performed • Stake: the number of
             DecentraStock a member has staked • Verified: the number of times a

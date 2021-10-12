@@ -46,7 +46,6 @@ export const DropdownMenu = ({setCurrent, options, wide}: DropDownProps) => {
         setSelectedOption(e);
         setCurrent(e);
     }
-    console.log(selectedOption);
     return (
         <Container wide={wide ? wide : false}>
             <Select
