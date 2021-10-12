@@ -1,31 +1,64 @@
-import {DropdownContainer, DropdownBox, P, Input, CenterImage, AltP, SwapBtn, Wrapper} from './Style';
+import { useState, useEffect } from 'react';
+import {DropdownContainer, DropdownBox, P, Span, Wrapper, FormWrapper} from './Style';
 import { DropdownMenu } from 'components/DropdownMenu/DropdownMenu';
-
-
-
-
-//interface CreateNewProposalViewProps {
-//Props Here
-//}
+import MintDDProposal from 'components/MintDDProposalForm/MintDDProposal';
+import MintDsProposal from 'components/MintDsProposal/MintDsProposal';
+import WithdawalProposal from 'components/WithdrawalProposal/WithdrawalProposal';
+import BurnProposal from 'components/BurnProposal/BurnProposal';
+import BurnStockProposal from 'components/BurnStockProposal/BurnStockProposal';
 
 
 export default function CreateNewProposalView(){
 
+    const proposalTypes = [
+        {value: 'mintDd', label: <Span>Mint</Span>},
+        {value: 'mintDs', label: <Span>Mint Stock</Span>},
+        {value: 'withdraw', label: <Span>Withdraw Funds</Span>},
+        {value: 'collateral', label: <Span>Collateral</Span>},
+        {value: 'generic', label: <Span>Generic</Span>},
+        {value: 'burnDd', label: <Span>Burn DecentraDollar</Span>},
+        {value: 'burnDs', label: <Span>Burn DecentraStock</Span>},
+        {value: 'empty', label: <Span></Span>},
+    ];
+    const [proposalType, setProposalType] = useState<any>(proposalTypes[0]);
+
+    /**
+     * function, hash, c-data into generic proposal
+     */
+
+    useEffect(() => {
+        proposalType !== undefined && handleView();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [proposalType])
+
+    const handleView = () => {
+        switch(proposalType.value) {
+            case 'mintDd':
+                return <MintDDProposal />;
+            case 'mintDs':
+                return <MintDsProposal />;
+            case 'withdraw':
+                return <WithdawalProposal />;
+            case 'burnDd':
+                return <BurnProposal />
+            case 'burnDs':
+                return <BurnStockProposal />
+            default:
+                break; 
+        }
+    }
+
 return (
     <Wrapper>
     <DropdownContainer>
-            <P>Input 1</P>
-                <DropdownBox>
-                    {/* <DropdownMenu setCurrent={setCurrentFromCurrency} /> */}
-                    <Input placeholder='Value' onChange={(e: React.FormEvent<HTMLInputElement>) => console.log(e)}/>
-                </DropdownBox>
-                <P>InputBox 2</P>
-                <DropdownBox>
-                    {/* <DropdownMenu setCurrent={setCurrentToCurrency} /> */}
-                    <Input placeholder='Value' onChange={(e: React.FormEvent<HTMLInputElement>) => console.log(e)} />
-                </DropdownBox>
-                <SwapBtn>Create Proposal</SwapBtn>
-            </DropdownContainer>
-            </Wrapper>
+        <P>Type of proposal</P>
+            <DropdownBox>
+                <DropdownMenu setCurrent={setProposalType} options={proposalTypes} wide />
+            </DropdownBox>
+    </DropdownContainer>
+        <FormWrapper>
+            {handleView()}
+        </FormWrapper>
+    </Wrapper>
 )
 }

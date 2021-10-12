@@ -18,8 +18,8 @@ const switchOptions = [
 ]
 
 export default function Dao() {
-    const [selectedFunction, setSelectedFunction] = useState<string>();
-    const initialSelectedIndex = switchOptions.findIndex(({value}: any) => value === 'swap');
+    const [selectedFunction, setSelectedFunction] = useState<string>('view');
+    const initialSelectedIndex = switchOptions.findIndex(({value}: any) => value === 'view');
 
     const handleSwitchChange = (newValue: any) => {
         setSelectedFunction(newValue)
