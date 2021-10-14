@@ -20,8 +20,10 @@ import {
   LeftAlignedContainer,
   RepoBtn,
   GHLogo,
-  BtnText
+  BtnText,
+  Logo,
 } from './Style';
+import { FrntPageDesignPiece } from 'components/FrntPageDesignPiece/FrntPageDesignPiece';
 
 /**
  * Chris, this is a super basic skeleton that should get you started.
@@ -48,8 +50,11 @@ const FrontPage = () => {
             <RepoBtn><GHLogo src={GithubLogo} alt=''/><BtnText>Repo</BtnText></RepoBtn>
           </TextBox>
           <RightBox>
-            <div>
-              <img src={DCLogo} alt="" />
+            <Gradient>
+            <FrntPageDesignPiece/>
+            </Gradient>
+            <div style={{marginBottom: '8em'}}>
+              <Logo src={DCLogo} alt="" />
             </div>
           </RightBox>
         </TopRow>
