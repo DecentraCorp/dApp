@@ -42,7 +42,7 @@ const FrontPage = () => {
             </Title>
             <Text>
               DecentraCorp is the world’s first Decentralized Autonomous
-              Corporation (DAC) where the CEO and Shareholders are the
+              Corporation (DAC) where the <br/> CEO and Shareholders are the
               employees, managers and factory owners.
             </Text>
             <RepoBtn><GHLogo src={GithubLogo} alt=''/><BtnText>Repo</BtnText></RepoBtn>
@@ -124,7 +124,6 @@ const FrontPage = () => {
           </TextBox>
         </RightAlignedContainer>
         <FullWidthBox>
-          {/* Text needs to be in container, likely with left padding or margin */}
           <TextBox style={{display: 'flex', flexDirection: 'column'}}>
           <Headings>
           D-Scores{' '}

@@ -89,7 +89,7 @@ export const InlineImg = styled.img<StyleProps>`
 `;
 
 export const FullWidthBox = styled.div<StyleProps>`
-  width: ${(props) => (props.full ? '100vw' : '100%')};
+  width: ${(props) => (props.full ? '100vw' : '90%')};
   height: 200px;
   background-color: ${(props) => (props.full ? '#636d6c' : '')};
   display: flex;
