@@ -5,7 +5,6 @@ interface StyleProps {
 }
 
 export const Wrapper = styled.div`
-  width: 95%;
   display: flex;
   flex-direction: column;
 `;
@@ -58,11 +57,9 @@ export const RightBox = styled.div`
   display: flex;
   justify-content: center;
   background-image: url(gradient-green.png);
-  border: solid red 4px;
 `;
 
 export const Gradient = styled.div`
-  border: solid red 4px;
   width: 100%;
   height: 100%;
   background-image: url('./gradient-green.png');
@@ -97,4 +94,31 @@ export const LeftAlignedContainer = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: flex-start;
+`;
+
+export const GHLogo = styled.img`
+  width: 2em;
+  height: 2em;
+  margin-right: 0.5em;
+`;
+
+export const RepoBtn = styled.button`
+  background-color: #01ffa5;
+    border-radius: 6px;
+    width: 144px;
+    height: 61px;
+    font-family: Spartan;
+    font-weight: 600;
+    /* font-size: 25px; */
+    line-height: 20.16px;
+    color: #2b3030;
+    border: none;
+    margin-right: 2em;
+    cursor: pointer;
+`;
+
+export const BtnText = styled.span`
+  font-family: Spartan;
+  font-weight: 600;
+  font-size: 25px;
 `;

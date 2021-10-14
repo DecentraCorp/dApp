@@ -2,7 +2,7 @@ import React from 'react';
 import DCLogo from '../../assets/DCLogo.svg';
 import BlockchainD from '../../assets/blockchainD.svg';
 import GreenWorldV from '../../assets/GreenWorldV.svg';
-
+import GithubLogo from '../../assets/GithubLogo.svg';
 import {
   Wrapper,
   TopRow,
@@ -18,6 +18,9 @@ import {
   RightFullWidth,
   RightAlignedContainer,
   LeftAlignedContainer,
+  RepoBtn,
+  GHLogo,
+  BtnText
 } from './Style';
 
 /**
@@ -42,6 +45,7 @@ const FrontPage = () => {
               Corporation (DAC) where the CEO and Shareholders are the
               employees, managers and factory owners.
             </Text>
+            <RepoBtn><GHLogo src={GithubLogo} alt=''/><BtnText>Repo</BtnText></RepoBtn>
           </TextBox>
           <RightBox>
             <div>
@@ -72,7 +76,7 @@ const FrontPage = () => {
           </RightFullWidth>
         </FullWidthBox>
         <RightAlignedContainer>
-          <TextBox style={{ border: 'solid red 3px' }}>
+          <TextBox>
             DecentraCore{' '}
             <Text>
               The DecentraCore contract is the central contract for the
@@ -83,7 +87,7 @@ const FrontPage = () => {
           </TextBox>
         </RightAlignedContainer>
         <LeftAlignedContainer>
-          <TextBox style={{ border: 'solid cyan 3px' }}>
+          <TextBox>
             DecentraBank{' '}
             <Text>
               The DecentraBank smart-contract is responsible for exchanging
@@ -98,7 +102,7 @@ const FrontPage = () => {
           {/* Image can go here */}
         </LeftAlignedContainer>
         <RightAlignedContainer>
-          <TextBox style={{ border: 'solid red 3px' }}>
+          <TextBox>
             DecentraStock{' '}
             <Text>
               DecentraStock is the ERC20 membership token for DecentraCorp. To
@@ -111,7 +115,7 @@ const FrontPage = () => {
           </TextBox>
           {/* Image can go here */}
         </RightAlignedContainer>
-        <FullWidthBox style={{ border: 'solid green 3px' }}>
+        <FullWidthBox>
           {/* Text needs to be in container, likely with left padding or margin */}
           D-Scores{' '}
           <Text>
