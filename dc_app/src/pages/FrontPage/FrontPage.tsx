@@ -18,7 +18,9 @@ import {
   RightFullWidth,
   RightAlignedContainer,
   LeftAlignedContainer,
+  Logo,
 } from './Style';
+import { FrntPageDesignPiece } from 'components/FrntPageDesignPiece/FrntPageDesignPiece';
 
 /**
  * Chris, this is a super basic skeleton that should get you started.
@@ -44,8 +46,11 @@ const FrontPage = () => {
             </Text>
           </TextBox>
           <RightBox>
-            <div>
-              <img src={DCLogo} alt="" />
+            <Gradient>
+            <FrntPageDesignPiece/>
+            </Gradient>
+            <div style={{marginBottom: '8em'}}>
+              <Logo src={DCLogo} alt="" />
             </div>
           </RightBox>
         </TopRow>

@@ -55,17 +55,26 @@ export const LogoWrap = styled.div`
 
 export const RightBox = styled.div`
   width: 51%;
+  height: 50%;
   display: flex;
   justify-content: center;
   background-image: url(gradient-green.png);
-  border: solid red 4px;
 `;
 
-export const Gradient = styled.div`
-  border: solid red 4px;
-  width: 100%;
+export const Gradient = styled.svg`
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 50%;
   height: 100%;
-  background-image: url('./gradient-green.png');
+  margin-bottom: 3em;
+`;
+
+export const Logo = styled.img`
+  height: 14em;
+  width: 14em;
+  margin-bottom: 10em;
 `;
 
 export const FullWidthBox = styled.div<StyleProps>`
