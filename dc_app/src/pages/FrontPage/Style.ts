@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 interface StyleProps {
   full?: boolean;
+  top?: boolean;
+  left?: boolean;
+  inner?: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -14,6 +17,7 @@ export const TopRow = styled.section`
   flex-direction: row;
   margin-top: 2em;
   margin-left: 3em;
+  margin-bottom: 3em;
 `;
 
 export const Title = styled.h2`
@@ -23,27 +27,29 @@ export const Title = styled.h2`
   font-weight: 700;
 `;
 
-export const TextBox = styled.div`
-  width: 49%;
+export const TextBox = styled.div<StyleProps>`
+  width: ${(props) => props.top || props.left ? '49%' : ''};
   margin-left: 3em;
   text-align: left;
-  height: 50%;
+  display: ${(props) => props.top ? '' : 'flex'};
+  flex-direction: row;
+  height: 100%;
 `;
 
-export const InLineImageTextBox = styled.div`
+export const InLineImageTextBox = styled.div<StyleProps>`
   display: flex;
   flex-direction: row;
-  width: 49%;
-  margin-left: 3em;
+  width: ${(props) => !props.left ? '60%' : ''};
+  margin-right: ${(props) => props.left ? 'auto' : '6em'};
+  margin-left: ${(props) => props.left ? '6em' : 'auto'};
   text-align: left;
-  height: 50%;
+  align-items: center;
 `;
 
 export const Text = styled.p`
   font-family: spartan;
   size: 24px;
-  line-height: 30px;
-  width: 80%;
+  line-height: 38px;
   font-weight: 500;
 `;
 
@@ -70,10 +76,16 @@ export const Gradient = styled.svg`
   margin-bottom: 3em;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled.img<StyleProps>`
   height: 14em;
   width: 14em;
   margin-bottom: 10em;
+  margin-left: ${(props) => props.inner ? '3em' : ''};
+  margin-right: ${(props) => props.inner ? '3em' : ''}
+`;
+
+export const InlineImg = styled.img<StyleProps>`
+  margin-right: 3em;
 `;
 
 export const FullWidthBox = styled.div<StyleProps>`
@@ -82,12 +94,14 @@ export const FullWidthBox = styled.div<StyleProps>`
   background-color: ${(props) => (props.full ? '#636d6c' : '')};
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 3em;
 `;
 
 export const LeftFullWidth = styled.div`
-  width: 50%;
+  width: 60%;
   height: 200px;
 `;
 
@@ -96,8 +110,27 @@ export const RightFullWidth = styled.div``;
 export const RightAlignedContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   justify-content: flex-end;
+`;
+
+export const Headings = styled.h4`
+  color: #00ffa5;
+  font-family: Spartan;
+  font-weight: 700;
+  font-size: 32px;
+`;
+
+export const LI = styled.li`
+  color: #00ffa5;
+`;
+
+export const Span = styled.span`
+  font-family: spartan;
+  size: 24px;
+  line-height: 38px;
+  font-weight: 500;
+  color: white;
 `;
 
 export const LeftAlignedContainer = styled.div`
