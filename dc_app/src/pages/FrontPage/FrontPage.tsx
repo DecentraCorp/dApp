@@ -2,7 +2,8 @@ import React from 'react';
 import DCLogo from '../../assets/DCLogo.svg';
 import BlockchainD from '../../assets/blockchainD.svg';
 import GreenWorldV from '../../assets/GreenWorldV.svg';
-
+import GithubLogo from '../../assets/GithubLogo.svg';
+import PaperLockImg from '../../assets/PaperLockImg.svg';
 import {
   Wrapper,
   TopRow,
@@ -18,41 +19,47 @@ import {
   RightFullWidth,
   RightAlignedContainer,
   LeftAlignedContainer,
+  RepoBtn,
+  GHLogo,
+  BtnText,
+  Logo,
+  InlineImg,
+  Headings,
+  LI,
+  Span,
 } from './Style';
+import { FrntPageDesignPiece } from 'components/FrntPageDesignPiece/FrntPageDesignPiece';
 
-/**
- * Chris, this is a super basic skeleton that should get you started.
- * I left notes throughout to try and help orient. The part on the top right I have no idea how were  * going to do that, but I'll research it and figure it out. A lot of the elements are going to need
- * some padding or margin adjustments to make them line up right. Also, the grey box that is
- * split into two is supposed to be the true whole width of the screen. I'll have to work with the
- * base style file to allow for that.
- */
 
 const FrontPage = () => {
   return (
     <div>
       <Wrapper>
         <TopRow>
-          <TextBox>
+          <TextBox top>
             <Title>
               The worlds first <br /> decentralized corporation
             </Title>
             <Text>
               DecentraCorp is the world’s first Decentralized Autonomous
-              Corporation (DAC) where the CEO and Shareholders are the
+              Corporation (DAC) where the <br/> CEO and Shareholders are the
               employees, managers and factory owners.
             </Text>
+            <RepoBtn><GHLogo src={GithubLogo} alt=''/><BtnText>Repo</BtnText></RepoBtn>
           </TextBox>
           <RightBox>
-            <div>
-              <img src={DCLogo} alt="" />
+            <Gradient>
+            <FrntPageDesignPiece/>
+            </Gradient>
+            <div style={{marginBottom: '8em'}}>
+              <Logo src={DCLogo} alt="" />
             </div>
           </RightBox>
         </TopRow>
         <FullWidthBox full>
           <LeftFullWidth>
-            <InLineImageTextBox>
-              <img src={BlockchainD} alt="" />
+            <InLineImageTextBox left>
+              <InlineImg src={BlockchainD} alt="" />
               <Text>
                 Operating under the guiding principles of decentralization and
                 individual autonomy, DecentraCorp seeks to radically alter the
@@ -62,7 +69,7 @@ const FrontPage = () => {
           </LeftFullWidth>
           <RightFullWidth>
             <InLineImageTextBox>
-              <img src={GreenWorldV} alt="" />
+              <InlineImg src={GreenWorldV} alt="" />
               <Text>
                 DecentraCorp aims to empower individuals by providing the tools
                 needed for entrepreneurship, self advancement and fulfillment
@@ -72,8 +79,9 @@ const FrontPage = () => {
           </RightFullWidth>
         </FullWidthBox>
         <RightAlignedContainer>
-          <TextBox style={{ border: 'solid red 3px' }}>
-            DecentraCore{' '}
+        <InlineImg src={PaperLockImg} alt=''/>
+          <TextBox style={{display: 'flex', flexDirection: 'column'}}>
+            <Headings>DecentraCore{' '}</Headings>
             <Text>
               The DecentraCore contract is the central contract for the
               DecentraCorp contract set. This contract handles DecentraCorp’s
@@ -83,8 +91,10 @@ const FrontPage = () => {
           </TextBox>
         </RightAlignedContainer>
         <LeftAlignedContainer>
-          <TextBox style={{ border: 'solid cyan 3px' }}>
+          <TextBox style={{display: 'flex', flexDirection: 'column'}}>
+            <Headings>
             DecentraBank{' '}
+            </Headings>
             <Text>
               The DecentraBank smart-contract is responsible for exchanging
               stable-coins like DAI and DecentraDollar for DecentraStock
@@ -95,11 +105,14 @@ const FrontPage = () => {
               and it’s members.
             </Text>
           </TextBox>
-          {/* Image can go here */}
+          <Logo src={DCLogo} alt='' inner/>
         </LeftAlignedContainer>
         <RightAlignedContainer>
-          <TextBox style={{ border: 'solid red 3px' }}>
+        <Logo src={DCLogo} alt=''inner left/>
+          <TextBox style={{display: 'flex', flexDirection: 'column', width: '70%'}}>
+            <Headings>
             DecentraStock{' '}
+            </Headings>
             <Text>
               DecentraStock is the ERC20 membership token for DecentraCorp. To
               become an active DecentraCorp member, an account must stake at
@@ -109,11 +122,12 @@ const FrontPage = () => {
               the main factor for determining D-Score.
             </Text>
           </TextBox>
-          {/* Image can go here */}
         </RightAlignedContainer>
-        <FullWidthBox style={{ border: 'solid green 3px' }}>
-          {/* Text needs to be in container, likely with left padding or margin */}
+        <FullWidthBox>
+          <TextBox style={{display: 'flex', flexDirection: 'column'}}>
+          <Headings>
           D-Scores{' '}
+          </Headings>
           <Text>
             Members of DecentraCorp all have a D-Score associated with their
             account. This D-Score is used to determine a users trustworthiness
@@ -123,17 +137,17 @@ const FrontPage = () => {
             customers and other members how trustworthy a member is.
           </Text>
           <Text>
-            The D-score is made up of the following factors: • Jobs: the
-            number of D-jobs completed by the member • Reputation: the overall
-            average of the rating of each job performed • Stake: the number of
-            DecentraStock a member has staked • Verified: the number of times a
-            member has been audited • Audit: the number of other members this
-            account has audited • Level: a members level is determined by a
-            DecentraCorp community by vote
+            The D-score is made up of the following factors:
+            <ul>
+              <LI>Jobs: <Span>The number of D-jobs completed by the member</Span></LI>
+              <LI>Reputation: <Span>The overall average of the rating of each job performed</Span></LI>
+              <LI>Stake: <Span>The number of DecentraStock a member has staked</Span></LI>
+              <LI>Verified: <Span>The number of times a member has been audited</Span></LI>
+              <LI>Audit: <Span>The number of other members this account has audited</Span></LI>
+              <LI>Level: <Span>A members level is determined by a DecentraCorp community vote</Span></LI>
+            </ul>
           </Text>
-        </FullWidthBox>
-        <FullWidthBox>
-          Timeline blurb will go here (need to make the text bubble outshoot)
+          </TextBox>
         </FullWidthBox>
       </Wrapper>
     </div>

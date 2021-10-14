@@ -25,10 +25,10 @@ const GlobalStyle = createGlobalStyle`
         position: relative;
         /* background-color: linear-gradient(270deg, #212625 0%, #212625 25.49%, #242929 43.96%, #262E2D 69.51%, #293231 85.49%, #2C3635 100%); */
         background-color: #293231;
-        width: 95vw;
+        width: 100vw;
         height: 100vh;
-        margin-right: auto;
-        margin-left: auto;
+        /* margin-right: auto;
+        margin-left: auto; */
         overflow-x: hidden;
         font-family: -apple-system, BlinkMacSystemFont;
         -webkit-font-smoothing: antialiased;
