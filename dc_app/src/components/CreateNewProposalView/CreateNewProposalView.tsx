@@ -6,6 +6,7 @@ import MintDsProposal from 'components/MintDsProposal/MintDsProposal';
 import WithdawalProposal from 'components/WithdrawalProposal/WithdrawalProposal';
 import BurnProposal from 'components/BurnProposal/BurnProposal';
 import BurnStockProposal from 'components/BurnStockProposal/BurnStockProposal';
+import AddCollateralProposal from 'components/AddCollateralProposal/AddCollateralProposal';
 
 
 export default function CreateNewProposalView(){
@@ -43,6 +44,9 @@ export default function CreateNewProposalView(){
                 return <BurnProposal />
             case 'burnDs':
                 return <BurnStockProposal />
+            case 'collateral':
+                return <AddCollateralProposal />
+            //TODO: Generic and pretty up components
             default:
                 break; 
         }
