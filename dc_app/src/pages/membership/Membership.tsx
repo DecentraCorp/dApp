@@ -4,6 +4,7 @@ import DecentraDollarBalance from '../../components/DecentraDollarBalance/Decent
 import DecentraStockBalance from '../../components/DecentraStockBalance/DecentraStockBalance';
 import WithdrawDepositBtns from '../../components/WithdrawDepositBtns/WithdrawDepositBtns';
 import TransactionDisplay from '../../components/TransactionDisplay/TransactionDisplay';
+import DScoreDisplay from 'components/DScoreDisplay/DScoreDisplay';
 
 export default function Dao() {
 
@@ -13,6 +14,7 @@ export default function Dao() {
             <InfoDisplayWrapper>
                 <DecentraDollarBalance />
                 <DecentraStockBalance />
+                <DScoreDisplay />
                 <WithdrawDepositBtns />
             </InfoDisplayWrapper>
             <TransactionHistory>
