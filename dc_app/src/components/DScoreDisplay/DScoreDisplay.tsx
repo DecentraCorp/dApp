@@ -20,11 +20,11 @@ return (
     <InfoBox>
         <InfoWrapper>
             <InfoHeader>Your D Score</InfoHeader>
-            <InfoSecondary>Level</InfoSecondary>
+            <InfoSecondary>17</InfoSecondary>
         </InfoWrapper>
         <RightBorder>
         <RightColumn>
-            <InfoHeader smaller>Type / Value</InfoHeader>
+            <InfoHeader smaller>Score Breakdown:</InfoHeader>
             <TextBox>
                 <InnerText>Jobs</InnerText>
                 <InnerText>12</InnerText>
