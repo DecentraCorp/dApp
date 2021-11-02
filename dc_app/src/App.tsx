@@ -53,7 +53,7 @@ function App() {
     {/* Put this in a modal */}
           <Wallet />
 
-             
+              
            </Route>
           <Route path="/bank" component={Bank}>
             
