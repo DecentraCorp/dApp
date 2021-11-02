@@ -43,7 +43,7 @@ function App() {
   const {width} = useGetWindowWidth();
     useOnClickOutside(node, () => setOpen(false));
   return (
-    <HashRouter>
+    <HashRouter>  
       { width && width > 1200 ?
         <NavBar/> :
         <div ref={node}>
