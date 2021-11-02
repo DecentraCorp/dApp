@@ -36,7 +36,7 @@ export function useIpfsSummary(){
 		const metadataPath = `${res[0].hash}`;
     	console.log(`proposalHash is at ${metadataPath}`);
 		// await ipfsClient.add(Buffer.from(metadataJson));
-		dCore._newProposal(metadataPath, _callData, amount);
+		 dCore._newProposal(metadataPath, _callData, amount);
 	  }
     
       return {ipfsSummary}

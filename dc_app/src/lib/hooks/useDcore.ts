@@ -12,21 +12,22 @@ export function UseDcore () {
     const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8000"));
 
     const contracts = useDContracts();
+	console.log(contracts)
 
     //- Proposal Core Function Calls
 	const _newProposal = async (
 		_proposalHash: any, _callData: any, amount: any
 	) => {
-		console.log( _proposalHash, _callData,amount, 'line 19 useDbank Hook')
-
+		console.log( 'prop hash:',_proposalHash,'call data:',_callData,amount.toLocaleString(), 'line 19 useDbank Hook')
+		
 		let tx: Maybe<ethers.ContractTransaction>;
 		try {
-			tx = await contracts!.DCore.newProposal(
+			tx = await contracts?.DCore.newProposal(
                 '0xfb821d4BD0027E80282F6F16E7550F9Ee8D21645',
                 _proposalHash,
                 _callData,	
-				{value: ethers.BigNumber.from(amount)}			
-			);
+				{value: ethers.BigNumber.from(amount.toLocaleString())}			
+			); 
 		} catch (e: any) {
 			console.error(e);
 			if (e.code === 4001) {

@@ -16,6 +16,7 @@ import { useIpfsSummary } from 'lib/hooks/useIpfsSummary';
 import { Table, Tag, Space } from 'antd';
 import SimpleOptionDropdown from 'components/Dropdowns/SimpleOptionDropdown/SimpleOptionDropdown';
 import PropInput from './propTypes';
+import { UseProxyCalls } from 'lib/hooks/useProxyCalls';
 
 
 
@@ -35,6 +36,7 @@ export default function Dao() {
   const dCore = UseDcore()
   const dScore = UseDscore()
   const pTypeMintDD = useMintDD();
+  const proxy = UseProxyCalls()
 
   const Web3 = require("web3");
 
@@ -45,7 +47,7 @@ export default function Dao() {
   const [title, setTitle] = React.useState<string>('')
   const [description, setDescription] = React.useState<any>('')
   const [_Data, setData] = React.useState<any>('')
-  const [proxyMintAmount, setProxyMintAmount] = React.useState<string>('')
+  const [proxyMintAmount, setProxyMintAmount] = React.useState<string >('')
   const [ethAddress, setEthAddress] = React.useState<string>('')
   const [tokenAddress, setTokenAddress] = React.useState('')
   const [_callData, setCallData] = React.useState<any>()
@@ -54,63 +56,26 @@ export default function Dao() {
    ///////////////
  // Web3 Functions //
 	///////////////
-
-  const proxyMint = async () => {
-    let _calldata = ''
-    try{
-      let val = ethers.utils.parseUnits(proxyMintAmount, 'ethers')
-      _calldata = await web3.eth.abi.encodeFunctionCall(
+    const proxyAddCollateral = async () => {
+      let encodedProposalDataAddCollateral = await web3.eth.abi.encodeFunctionData(
         {
-          name: "proxyMintDD",
-          type: "function",
-          inputs: [
-            {
-              type: "address",
-              name: "_to",
-            },
-            {
-              type: "uint256",
-              name: "_amount",
-            },
-          ],
-        },
-        [ethAddress, val]
+        name: "addNewCollateralType",
+        type: "function",
+        "inputs": [
+          {
+            "name": "_collateral",
+            "type": "address"
+          }
+        ], 
+      },
+      [proxyMintAmount]
       );
-      return _calldata
-    } catch (err: any) {
-      console.log(err, 'line 80')
-
-    }
-  }
-
-  const proxyMintDD = async () => {
-  let val = ethers.utils.parseUnits('1')
-  let encodedProposalDataMintDD;
-  encodedProposalDataMintDD = await web3.eth.abi.encodeFunctionCall(
-    {
-      name: "proxyMintDD",
-      type: "function",
-      inputs: [
-        {
-          type: "address",
-          name: "_to",
-        },
-        {
-          type: "uint256",
-          name: "_amount",
-        },
-      ],
-    },
-    [ethAddress, val]
-  );
-  return encodedProposalDataMintDD
+      return encodedProposalDataAddCollateral
     }
 
+    console.log(proxyMintAmount, 'line 96')
 
   const proxyBurnDD = async () => {
-    if(!active){
-      alert('connect wallet before selecting proposal type')
-    }
     let encodedProposalDataBurnDD = web3.eth.abi.encodeFunctionCall({
       name: "proxyBurnDD",
       type: "function",
@@ -131,9 +96,6 @@ export default function Dao() {
     }
 
   const proxyMintDS = async () => {
-    if(!active){
-      alert('connect wallet before selecting proposal type')
-    }
     let encodedProposalDataMintDS = await web3.eth.abi.encodeFunctionCall({
       name: "proxyMintDS",
       type: "function",
@@ -152,9 +114,6 @@ export default function Dao() {
   }
 
   const proxyBurnDS = async () => {
-    if(!active){
-      alert('connect wallet before selecting proposal type')
-    }
     let encodedProposalDataBurnDS = await web3.eth.abi.encodeFunctionCall(  {
       name: "proxyBurnDS",
       type: "function",
@@ -174,27 +133,7 @@ export default function Dao() {
     )
   }
 
-  const proxyAddCollateral = async () => {
-    if(!active){
-      alert('connect wallet before selecting proposal type')
-    } 
-    let encodedProposalDataAddCollateral = await web3.eth.abi.encodeFunctionData({
-      name: "addNewCollateralType",
-      type: "function",
-      "inputs": [
-        {
-          "name": "_collateral",
-          "type": "address"
-        }
-      ], 
-    },[tokenAddress]
-    )
-  }
-
-  const proxywidthdrawFunds = async () => {
-    if(!active){
-      alert('connect wallet before selecting proposal type')
-    }
+  const proxywithdrawFunds = async () => {
     let val = ethers.utils.parseUnits('1' ,'ethers')
     let encodedProposalDataWidthdraw = await web3.eth.abi.encodeFunctionCall({
       name: "fundWithdrawl",
@@ -218,13 +157,35 @@ export default function Dao() {
   }
 
 
+  const proxyMintDD = async () => {
+    let val = ethers.utils.parseUnits(proxyMintAmount)
+    let encodedProposalDataMintDD;
+    encodedProposalDataMintDD = await web3.eth.abi.encodeFunctionCall(
+      {
+        name: "proxyMintDD",
+        type: "function",
+        inputs: [
+          {
+            type: "address",
+            name: "_to",
+          },
+          {
+            type: "uint256",
+            name: "_amount",
+          },
+        ],
+      },
+      [ethAddress, val]
+    );
+    return encodedProposalDataMintDD
+      }
 
   const handleCreate = async (_calldata: any) => {
     if(!active){
       alert('please connect your wallet')
     } else
    await _ipfs.ipfsSummary(
-       title,description,propType, await proxyMintDD(), proxyMintAmount
+       title,description,propType, await proxyMintDD(), ethers.BigNumber.from(proxyMintAmount)
    )
   }
 
@@ -233,6 +194,9 @@ export default function Dao() {
    return tx
   }
 
+  const handleStakeChange = async (e: any) => {
+    setStakeAmount(e.target.value)
+  }
  
 
   const handleChange = (e: any) => {
@@ -282,6 +246,9 @@ export default function Dao() {
 					      onSubmit={handleA}
 				      	style={{ marginTop: 8 }}
 				/>
+
+            <input placeholder='Stake Amount' onChange={handleStakeChange} />
+            <button onClick={handleStake} >Stake membership</button>
             </div>
 
      
@@ -290,14 +257,7 @@ export default function Dao() {
        
 
            
-            {/* <div  style={stake as React.CSSProperties}>
-                <div style={stakeBox as React.CSSProperties}>
-            <input   />
-            <button onClick={handleStake}>
-				Stake member
-			</button>
-            </div>
-            </div> */}
+           
           
         </div>
      
