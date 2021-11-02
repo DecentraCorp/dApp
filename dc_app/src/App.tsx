@@ -4,7 +4,7 @@ import { Route,Switch, HashRouter} from 'react-router-dom'
 
 // - Component Imports
 import Bank from './pages/bank/bank'
-import Dao from './components/dao/dao';
+import Dao from './pages/Dao/Dao';
 import Homepage from './pages/homepage/homepage';
 import Membership from './pages/membership/Membership';
 import {NavBar} from '../src/components/NavBar/NavBar';
@@ -52,17 +52,17 @@ function App() {
       }
         <Switch>
           <Route path="/welcome" component={FrontPage} />
-          <Route exact path="/" component={Homepage}>
+          <Route exact path="/" component={FrontPage}>
           </Route>
           <Route path="/bank" component={Bank} />
           <Route path="/dao" component={Dao} />
           <Route path='/membership' component={Membership} />
         </Switch>
-    </HashRouter>
+    </HashRouter> 
   );
 }
      
-function wrappedApp() {
+function wrappedApp() { 
   return (
     <ApolloProvider client={client}>
       <Web3ReactProvider getLibrary={getLibrary}>

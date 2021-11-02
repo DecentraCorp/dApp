@@ -1,9 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface StyleProps {
+    wide: boolean;
+}
+
+export const Container = styled.div<StyleProps>`
     position: relative;
-    width: 50%;
+    width: ${(props) => props.wide ? '100%' : '50%'};
 `;
 
 
