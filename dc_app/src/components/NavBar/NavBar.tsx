@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import  Wallet  from '../userWallet/wallet'
 import Logo from '../../assets/DBlogo.svg';
-import { Nav, WalletBtn, Wrapper, LogoWrapper, Title } from './Style';
+import { Nav, WalletBtn, Wrapper, LogoWrapper, Title, CloseBtn } from './Style';
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import {
@@ -16,6 +16,7 @@ import {
   useDisclosure
 } from "@chakra-ui/react"
 import './chakra.styles.css'
+import { truncate } from 'lodash';
 
 export function NavBar() {
   const context = useWeb3React<Web3Provider>();
@@ -40,7 +41,7 @@ export function NavBar() {
         <Nav>DecentraCorp DAO</Nav>
       </NavLink>
       {/* <Wallet /> */}
-			{account ? <div id="account">{account}</div> : null}
+			{account ? <div id="account">{truncate(account)}</div> : null}
 			<WalletBtn onClick={onOpen}>
 				{active ? 'Connected' : 'Connect Wallet'}
 			</WalletBtn>
@@ -52,9 +53,9 @@ export function NavBar() {
           </ModalBody>
 
           <ModalFooter>
-            <WalletBtn onClick={onClose}>
+            <CloseBtn onClick={onClose}>
               Close
-            </WalletBtn>
+            </CloseBtn>
           </ModalFooter>
         </ModalContent>  
         </Modal>
