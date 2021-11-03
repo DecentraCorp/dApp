@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import IdxProvider from 'lib/context/idxContext';
+import GlobalStyle from 'theme/globalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IdxProvider>
+      <GlobalStyle />
+      <App />
+    </IdxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

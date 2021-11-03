@@ -1,0 +1,16 @@
+.chakra-modal__content{
+    margin-top: 2%;
+    max-width:370px;
+    background-color: blue;
+    height: 450px;
+
+    
+ }
+
+ .chakra-modal__content-container{
+    margin-left: 40%;
+    z-index: 100;
+    /* background-color: blue; */
+    /* width: 100%; */
+ }
+

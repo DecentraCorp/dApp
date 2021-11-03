@@ -4,7 +4,7 @@ import React from "react";
 
 // - Contract Imports 
 import { useDContracts } from "../contracts/contracts";
-import { Maybe, NewProposal, Quorum, Vote } from "../utils/types";
+import { Maybe, NewProposal, Vote } from "../utils/types";
 
 export function UseDcore () {
 	const Web3 = require("web3");
@@ -39,53 +39,53 @@ export function UseDcore () {
 		return tx;
 	};
 
-    const _newQuorum = async (
-		params: Quorum,
-	) => {
-		console.log(params._quorum, 'line 39 useDbank Hook')
+    // const _newQuorum = async (
 
-		let tx: Maybe<ethers.ContractTransaction>;
-		try {
-			tx = await contracts!.DCore.setQuorum(
-               		params._quorum
-			);
-		} catch (e: any) {
-			console.error(e);
-			if (e.code === 4001) {
-				throw Error(`Transaction rejected by your wallet`);
-			}
-			throw Error(`Failed to submit transaction.`);
-		}
+	// ) => {
+	// 	console.log(params._quorum, 'line 39 useDbank Hook')
 
-		return tx;
-	};
+	// 	let tx: Maybe<ethers.ContractTransaction>;
+	// 	try {
+	// 		tx = await contracts!.DCore.setQuorum(
+    //            		params._quorum
+	// 		);
+	// 	} catch (e: any) {
+	// 		console.error(e);
+	// 		if (e.code === 4001) {
+	// 			throw Error(`Transaction rejected by your wallet`);
+	// 		}
+	// 		throw Error(`Failed to submit transaction.`);
+	// 	}
 
-    const _vote = async (
-		params: Vote,
-	) => {
-		console.log(params._proposalID, 'line 69 useDbank Hook')
+	// 	return tx;
+	// };
 
-		let tx: Maybe<ethers.ContractTransaction>;
-		try {
-			tx = await contracts!.DCore.vote(
-               		params._proposalID,  
-					params._support
-			);
-		} catch (e: any) {
-			console.error(e);
-			if (e.code === 4001) {
-				throw Error(`Transaction rejected by your wallet`);
-			}
-			throw Error(`Failed to submit transaction.`);
-		}
+    // const _vote = async (
+	// 	params: Vote,
+	// ) => {
+	// 	console.log(params._proposalID, 'line 69 useDbank Hook')
 
-		return tx;
-	};
+	// 	let tx: Maybe<ethers.ContractTransaction>;
+	// 	try {
+	// 		tx = await contracts!.DCore.vote(
+    //            		params._proposalID,  
+	// 				params._support
+	// 		);
+	// 	} catch (e: any) {
+	// 		console.error(e);
+	// 		if (e.code === 4001) {
+	// 			throw Error(`Transaction rejected by your wallet`);
+	// 		}
+	// 		throw Error(`Failed to submit transaction.`);
+	// 	}
+
+	// 	return tx;
+	// };
 
     
 
-
+    // _newQuorum,_vote
    
   
- return {_newProposal,_newQuorum,_vote}
+ return {_newProposal,}
 }

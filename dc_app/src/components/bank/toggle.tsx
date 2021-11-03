@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { converttextstyle,switchLogostyle,CircleButtonstyle,Inputstyle,InputBoxstyle,togglestyleLiq, togglestyleSwap, buttonstyle, tinytextstyle, toggleHelperstyleActive, toggleHelperstyleInactive} from '../../styles'
-import {DropDownTo,DropDownFrom} from './dex/dropdown'
+// import {DropDownTo,DropDownFrom} from './dex/dropdown'
 import switchlogo from '../../assets/switchLogo.svg'
 import { UseDbank } from '../../lib/hooks/useDbank'
 import { Maybe } from '../../lib/utils/types'
@@ -133,7 +133,7 @@ const ToggleSwitch = () => {
 
   <label>
     <div style={InputBoxstyle as React.CSSProperties}>
-    <DropDownTo/>
+   
       <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
       </input>
     </div>
@@ -148,7 +148,7 @@ const ToggleSwitch = () => {
 
 <div><p style={tinytextstyle}>Swap To:</p></div>
 <div style={InputBoxstyle as React.CSSProperties}>
-<DropDownFrom/>
+
       <input style={Inputstyle as React.CSSProperties} value={calculatedPrice} >
       
       </input>
@@ -187,7 +187,7 @@ const ToggleSwitch = () => {
     
       <label>
         <div style={InputBoxstyle as React.CSSProperties}>
-        <DropDownTo/>
+       
           <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
           
           </input>
@@ -199,7 +199,7 @@ const ToggleSwitch = () => {
     </form>
     <div><p style={tinytextstyle}>Swap To:</p></div>
     <div style={InputBoxstyle as React.CSSProperties}>
-    <DropDownTo/>
+  
           <input style={Inputstyle as React.CSSProperties} value={AmountToSell} onChange={handleChange} >
           
           </input>

@@ -1,3 +1,4 @@
+import { Bytes } from "@ethersproject/bytes";
 
 //- Decentra Bank
 export interface PurchaseStock {
@@ -8,8 +9,7 @@ export interface PurchaseStock {
 export interface SellStock {
     _amount: any
 }
-
-export interface AddCollateral {
+ export interface AddCollateral {
     _collateral: string | any
 }
 
