@@ -29,6 +29,7 @@ const Topbar: FC = () => {
 	};
 
 	return (
+		<>
 		<div id="topbar">
 			{account ? <div id="account">{account}</div> : null}
 			<button id="connect-btn" onClick={showModal}>
@@ -43,6 +44,7 @@ const Topbar: FC = () => {
 				<Wallet />
 			</Modal>
 		</div>
+		</>
 	);
 };
 

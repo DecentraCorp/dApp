@@ -9,11 +9,11 @@ import Homepage from './pages/homepage/homepage';
 import Membership from './pages/membership/Membership';
 import {NavBar} from '../src/components/NavBar/NavBar';
 import {MobileNavBar} from '../src/components/MobileNavBar/MobileNavBar';
-import FrontPage from 'pages/FrontPage/FrontPage';
-
-//- Web3 Imports
+import FrontPage from 'pages/FrontPage/FrontPage'; 
+  
+//- Web3 Imports 
 import { Web3ReactProvider } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers';
+import { Web3Provider } from '@ethersproject/providers'; 
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -43,7 +43,7 @@ function App() {
   const {width} = useGetWindowWidth();
     useOnClickOutside(node, () => setOpen(false));
   return (
-    <HashRouter>
+    <HashRouter>  
       { width && width > 1200 ?
         <NavBar/> :
         <div ref={node}>
@@ -58,18 +58,20 @@ function App() {
           <Route path="/dao" component={Dao} />
           <Route path='/membership' component={Membership} />
         </Switch>
-    </HashRouter>
+    </HashRouter> 
   );
 }
      
-function wrappedApp() {
+function wrappedApp() { 
   return (
     <ApolloProvider client={client}>
       <Web3ReactProvider getLibrary={getLibrary}>
+  
           <App />
+         
       </Web3ReactProvider>
     </ApolloProvider>
   );
-}
+} 
 
-export default wrappedApp;
+export default wrappedApp; 
