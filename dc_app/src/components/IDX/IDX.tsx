@@ -1,5 +1,5 @@
 import { useIdxContext } from 'lib/context/idxContext';
-import useAuthThreeId from 'lib/hooks/useAuthThreeId'
+// import useAuthThreeId from 'lib/hooks/useAuthThreeId'
 import { useIDX } from 'lib/hooks/useIDX';
 import CreateProfileForm from '../../components/CreateProfileForm/CreateProfileForm';
 import {
@@ -9,12 +9,12 @@ import {
 
 export default function Dao() {
     
-    const {authenticate} = useAuthThreeId();
+    // const {authenticate} = useAuthThreeId();
     const {getProfile, auth, setProfile} = useIDX();
     const {idx, did} = useIdxContext();
 
     const authUser = async () => {
-        await authenticate()
+        // await authenticate()
     }
 
     const getDidProfile = async () => {
